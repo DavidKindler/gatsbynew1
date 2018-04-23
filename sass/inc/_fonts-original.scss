@@ -1,0 +1,307 @@
+/* Start _fonts.scss */
+//
+// Project: NXP Responsive Design;
+// Description: Basic Font Standardization Recommendations;
+// Author: Paul Capetola;
+// ========================================================
+
+// --------------------------------------------------------------
+// #1.0 - Reset root font-size to 10px (easy-to-handle rem values)
+// --------------------------------------------------------------
+html {
+  font-size: 62.5%; // Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+  font-size: 10px; // Corrects text resizing oddly when browsers zoom text only. rem units will call back to this root font-size.
+  height: 100%;
+  overflow-y: scroll; // Keeps page centered in all browsers regardless of content height
+  -webkit-text-size-adjust: 100%; // Prevents iOS text size adjust after orientation change, without disabling user zoom
+  -ms-text-size-adjust:     100%; // Prevents iOS text size adjust after orientation change, without disabling user zoom
+}
+
+
+// --------------------------------------------------------------
+// #2.0 - Set base body font-size (changes from mobile -> desktop)
+// --------------------------------------------------------------
+body {
+	color: $nxp-body-text; // Set base font color
+	font-family: $font-family-sans-serif; // Set base font-family
+	font-size: 14px; // Set base font-size (mobile-first). This is the global parent for em units.
+	line-height: 1.428; // Set base line-height
+}
+
+@media (min-width: $screen-sm) {
+	body { font-size: 16px; } // Increase base font-size larger than mobile.
+}
+
+@media print {
+	body {
+		background: transparent; // Removes any background color from printing
+		color: black; // Sets standard text print color.
+		font-size:  12pt; // Reduce font size (in pts.)
+	}
+}
+
+
+
+
+
+/*
+// --------------------------------------------------------------
+// #3.0 - Set header styles in rem (for more strict control, won't be effected // by body-size change)
+//	   * At current font-sizes *
+// --------------------------------------------------------------
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: $headings-font-family;
+	color: $nxp-subheads;
+//	font-size: 2.6rem; // Using rem allows for strict font-size control on headers.
+	line-height: 1.2;
+	text-indent: 0;
+	margin: 0.71428571428rem 0;
+}
+
+h2, .h2 {
+	color: $nxp-deep-orange;
+//	font-size: 1.8rem;
+	font-weight: $headings-font-weight;
+}
+
+h3, .h3 {
+//	font-size: 1.6rem;
+}
+
+h4, .h4,
+h5, .h5 {
+//	font-size: 1.4rem;
+	font-weight: $headings-font-weight; // There is no distinction between h4/h5 styling, font-size potentially smaller than body copy
+}
+
+h6, .h6 {
+//	font-size: 1.2rem;
+}
+
+// --------------------------------------------------------------
+// #3.1 - Set header styles in em (more flexible font-sizes that will change with relation to body copy)
+//	   * At reccomended font-sizes *
+// --------------------------------------------------------------
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: $headings-font-family;
+	color: $nxp-subheads;
+//	font-size: 2em; // This is the standard h1 size I would recommend (32px desktop)
+	line-height: 1.2;
+	text-indent: 0;
+	margin: 0.75em 0 .25em 0;
+}
+
+h2, .h2 {
+	color: $nxp-deep-orange;
+//	font-size: 1.5em; // The h2 size I recommend (24px desktop)
+	font-weight: $headings-font-weight;
+}
+
+h3, .h3 {
+//	font-size: 1.25em; // The h3 size I recommend (20px desktop)
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+//	font-size: 1.125em; // The h4 size I recommend (18px desktop)
+	font-weight: $headings-font-weight;
+}
+
+h5, .h5 {
+//	font-size: .875em; // The h5 size I recommend (14px desktop)
+}
+
+h6, .h6 {
+//	font-size: .75em; // The h6 size I recommend (12px desktop)
+}
+
+// --------------------------------------------------------------
+// #3.2 - Paul's 'ideal world' header font-sizes
+// --------------------------------------------------------------
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: $headings-font-family;
+	color: $nxp-subheads;
+//	font-size: 2.6rem; // mobile-first sizes
+	line-height: 1.2;
+	text-indent: 0;
+	margin: 0.75em 0 .25em 0;
+}
+
+h2, .h2 {
+	color: $nxp-deep-orange;
+//	font-size: 2.2rem;
+	font-weight: bold;
+}
+
+h3, .h3 {
+//	font-size: 1.8rem;
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+//	font-size: 1.6rem;
+	font-weight: bold;
+}
+
+h5, .h5 {
+//	font-size: 1.4rem;
+}
+
+h6, .h6 {
+//	font-size: 1.2rem;
+} 
+*/
+
+
+// --------------------------------------------------------------
+// #3.3 - Final Header Styles
+// --------------------------------------------------------------
+// common styles
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	margin: 0.75em 0 .25em 0;
+	font-family: $headings-font-family;
+	font-weight: $headings-font-weight;
+	color: $nxp-subheads;
+	text-indent: 0;
+	line-height: 1.2;
+}
+// individual styles
+h1, .h1 { font-size: 2.2rem; }
+h2, .h2 {
+	color: $nxp-deep-orange;
+	font-size: 2.0rem;
+}
+h3, .h3 { font-size: 1.8rem; }
+h4, .h4 { font-size: 1.6rem; }
+h5, .h5 { font-size: 1.4rem; }
+h6, .h6 { font-size: 1.2rem; }
+
+@include breakpoint(screen-small) {
+	h1, .h1 { font-size: 2.6rem; }
+	h2, .h2 { font-size: 2.2rem; }
+	h3, .h3 { font-size: 2rem; }
+	h4, .h4 { font-size: 1.8rem; }
+//	h5, .h5 { font-size: ; }
+//	h6, .h6 { font-size: ; }
+}
+
+
+
+
+
+@media (min-width: $screen-sm) {
+//	h1, .h1 { font-size: 3.2rem; } // larger, desktop sizes
+//	h2, .h2 { font-size: 2.4rem; }
+//	h3, .h3 { font-size: 2rem; }
+//	h4, .h4 { font-size: 1.8rem; }
+}
+
+@media print {
+	h1, h2, h3, h4, h5, h6,
+	.h1, .h2, .h3, .h4, .h5, .h6 {
+		color: black;
+		font-size: 20pt; // Standardizes headers for printing, look into margins for print as well.
+	}
+
+	h2, .h2 {
+		// color: #e66a08;
+		font-size: 16pt;
+	}
+
+	h3, .h3 { font-size: 14pt; }
+	h4, .h4 { font-size: 12pt; }
+	h5, .h5 { font-size: 10pt; }
+	h6, .h6 { font-size: 8pt; }
+}
+
+// --------------------------------------------------------------
+// As a sidenote, I'm not sure how concerned we are with print styles, but this really just covers them at the most basic sense. Also, I know we've already discussed using rem for headers, but the em sizes I show, give some indication as to how I reached my rem values (for desktop.) It also shows the greater control I have for mobile header sizes.
+// --------------------------------------------------------------
+
+// Typographic Elements
+//-------------------------
+p,
+ul, ol,
+pre,
+table,
+blockquote {
+  margin-top: 0;
+  margin-bottom: $typespace;
+}
+
+// Modifiers
+//-------------------------
+b,
+strong,
+em,
+small,
+code {
+  line-height: 1;
+}
+
+sup,
+sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+}
+
+sub {
+  top: 0.4em;
+}
+
+.small, small {
+  font-size: 85.714285714%;
+  line-height: 1.25;
+  opacity: .9;
+}
+
+.large, large {
+  font-size: 115%;
+}
+
+.intro,
+.lead {
+  font-family: $headings-font-family;
+  font-size: 1.25em;
+  line-height: 1.29411764706;
+  margin-bottom: 1.2em;
+  margin-top: .5em;
+}
+
+
+// Anchors
+//-------------------------
+a {
+  color: $link-color;
+  text-decoration: none;
+  background-color: initial;
+}
+
+a:visited {
+  color: $link-visited-color;
+}
+
+a:hover,
+a:focus {
+  color: $link-hover-color;
+  text-decoration: underline;
+  background-color: initial;
+  cursor: pointer;
+}
+
+a:focus {
+  text-decoration: none;
+}
+
+a:active {
+  color: $link-color;
+}
+
+/* End _fonts.scss */

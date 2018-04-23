@@ -1,0 +1,49 @@
+// Tabs
+// -------------------------
+
+// Give the tabs something to sit on
+.nav-tabs {
+  border-bottom: 1px solid $nav-tabs-border-color;
+  padding-left: 4px;
+  > li {
+    float: left;
+    // Make the list-items overlay the bottom border
+    margin-bottom: -1px;
+
+    // Actual tabs (as links)
+    > a {
+      font-weight: bold;
+      font-size: .9em;
+      color: $cool-grey-dark;
+      margin-right: 4px;
+      line-height: $line-height-base;
+      border: 1px solid $warm-grey-light;
+      border-radius: $border-radius-base $border-radius-base 0 0;
+      background-color: $cool-grey-xxlight;
+      padding: .45em .65em;
+      &:hover {
+        // border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+        background-color: $nxp-orange;
+
+      }
+    }
+
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $nxp-charcoal;
+        background-color: $nav-tabs-active-link-hover-bg;
+        // border: 1px solid $nav-tabs-active-link-hover-border-color;
+        border-bottom-color: transparent;
+        cursor: default;
+      }
+    }
+  }
+  // // pulling this in mainly for less shorthand
+  // &.nav-justified {
+  //   @include nav-justified();
+  //   @include nav-tabs-justified();
+  // }
+}

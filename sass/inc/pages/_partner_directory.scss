@@ -1,0 +1,21 @@
+// @import 'partner_directory/layout';
+// @import 'partner_directory/filters';
+// @import 'partner_directory/results';
+// @import 'partner_directory/search';
+
+// Results Items: Partner Directory specific (may extend to others)
+// use more specific class, other SPA may not need these styles
+// class added to media-flex component for spcificity
+.partner-directory-items {
+  padding-top: 0;
+
+  .media-flex-media {
+    max-width: 130px; // Fix for images that are larger than 100px with room for padding left/right of 15px;
+  }
+
+  @include breakpoint-max($screen-sm) {
+    .media-flex-media {
+      display: none;
+    }
+  }
+}

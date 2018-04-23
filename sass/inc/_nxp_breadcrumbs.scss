@@ -1,0 +1,132 @@
+/* Start _nxp_breadcrumbs.scss */
+//  ---------------------------------------------------------------------------
+// Updated Breadcrumbs for Page Title Favorite button
+//  ---------------------------------------------------------------------------
+
+.bc-container {
+  margin: 10px 0 0;
+  @include breakpoint(screen-small) {
+    margin: 0;
+    // margin: 0 -15px;
+  }
+
+  .bc {
+    @include list-unstyled;
+    display: none;
+    max-width: calc(100% - 100px);
+    margin: 0;
+    color: $nxp-body-text;
+    font-size: 12px;
+    line-height: 18px;
+
+    @include breakpoint(screen-small) {
+      display: inline-block;
+    }
+
+  	li {
+      position: relative;
+      display: inline-block;
+      padding: 0;
+      margin-bottom: 0;
+      // removes orange square
+      &:before { content: ""; }
+      //  adds > between links
+      &:after {
+        content: "\e3b1";
+        position: relative;
+        bottom: 1px;
+        margin-left: 5px;
+        margin-right: 2px;
+        color: $cool-grey-xlight;
+        font: {
+          family: "icomoon";
+          style: normal;
+          size: 8px;
+          variant: normal;
+          weight: 400;
+        }
+        text-transform: uppercase;
+      }
+
+      &:last-of-type {
+        font-weight: 700;
+
+        &:after { display: none; }
+      }
+  	}// li
+  }// .bc
+
+  // not included in nest so that styles work for share buttons
+  a {
+    color: $nxp-body-text;
+
+    &:link, &:visited, &:active {
+      color: $nxp-body-text;
+    }
+
+    &:hover {
+      color: $link-hover-color;
+    }
+  }// a
+}
+
+.share-icons {
+  display: none;
+  width: auto;
+  max-width: 80px;
+  // commented out to work with old layout (breadcrumb area)
+  // when switched to page title layout, replace margin-top
+  
+//  margin-top: .5em; // help align with baseline of text
+  text-align: right;
+
+  > * {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 0 0 5px;
+
+    &:first-child { padding: 0; }
+    &.favorite { font-size: 110%; }
+    &.favorited { color: $nxp-orange; }
+  }
+
+  a {
+    color:  $cool-grey-xxdark;
+    text-decoration: none;
+
+    &:link, &:visited, &:active {
+      color: $nxp-body-text;
+    }
+
+    &:hover {
+      color: $nxp-body-text;
+    }
+
+    &.favorited:hover { color: $nxp-orange; }
+  }// a
+
+  @include breakpoint(screen-small) {
+    display: inline-block;
+  }
+}// .share-icons
+
+// Page Title - to be moved to new component area when finished
+.page-title {
+  // remove margin from h1 and place on container element
+  // so that share icons align to top of text
+  margin-top: 1em;
+  margin-bottom: .625em;
+
+  .title {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0;
+    margin-bottom: 0; // moved to container above
+
+    @include breakpoint(screen-small) {
+      max-width: calc(100% - 80px); // 100px max-width of share icons
+    }
+  }
+}
+
+/* End _nxp_breadcrumbs.scss */

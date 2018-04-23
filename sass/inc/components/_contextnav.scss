@@ -1,0 +1,98 @@
+#contextnav {
+  padding-left: 0;
+  & h2 {
+    font-size: 100%;
+    font-weight: 700;
+    font-family: $font-family-sans-serif;
+    text-transform: capitalize;
+    //color: #646464;
+    display: inline-block;
+    //border-bottom: 1px solid rgba(51,51,51,1);
+    margin-top: 1.714285em; // (24px) vertically align this to the overview H2
+  }
+  & input {
+    width: 95%;
+    height: 30px;
+    box-shadow: none;
+    border-radius: 2px;
+    border: 1px solid $warm-grey-light;
+    padding-left: 8px;
+  }
+  & label {
+    margin-bottom: 0px;
+  }
+}
+
+.contextnav.nav {
+  margin-bottom: 1em;
+  font-size: 1.4rem;
+  & > li > a {
+    color: $nxp-body-text;
+    text-decoration: none;
+    display: inline-block;
+    padding: .25em 0 0;
+    margin-bottom: .25em;
+//    @include transition(all .25s ease);
+    border-bottom: 1px solid rgba(51,51,51,0);
+    &:hover {
+//      text-decoration: underline;
+      color: $black;
+      background-color: transparent;
+      border-bottom: 1px solid rgba(51,51,51,1);
+    }
+	&:focus{
+      background-color: transparent;
+	}
+  }
+  & li.selected,
+  & li.active {
+    //background-color: $cool-grey-xxxlight;
+    text-decoration: none;
+    color: $black;
+    font-weight: 600;
+    & a {
+      color: $black;
+    }
+	&::before {
+		background-color: $nxp-orange;
+		content: " ";
+		display: inline-block;
+		height: 17px;
+		margin-left: -10px;
+		position: absolute;
+		top: 5px;
+		width: 4px;
+	}
+  }
+  & ul li {
+    & a {
+      font-size: 1.2rem;
+      color: $cool-grey-dark;
+      text-decoration: none;
+      display: block;
+      &:hover {
+        text-decoration: none;
+        color: $black;
+      }
+    }
+    &.selected {
+      background-color: $cool-grey-xxxlight;
+      text-decoration: none;
+      color: $black;
+      font-weight: 600;
+      & a {
+        color: $black;
+      }
+    }
+  }
+  &.affix {
+    top: 10px;
+    padding-right: 30px;
+    width: 225px;
+  }
+  &.affix-top {
+    top: 10px;
+    padding-right: 30px;
+    width: 225px;
+  }
+}

@@ -1,0 +1,123 @@
+// =========================
+// Component Name: Key Features Product Table
+// Component Type: Table
+// =========================
+.keyFeaturesProductTable-wrapper {
+  @include breakpoint(screen-small-and-less) {
+    /* trick to keep span background to appear full width to repsonsive table */
+    background-image: linear-gradient($cool-grey-xdark 10%, $cool-grey-xdark 10%, rgba(0, 208, 210, 0) 11%);
+  }
+  span.summary {
+    display: block;
+    color: white;
+    text-align: center;
+    background-color: $cool-grey-xdark;
+    padding: 0.5em;
+    border-bottom: 2px solid $cool-grey-xxlight;
+  }
+}
+
+.keyFeaturesProductTable {
+  @include breakpoint(screen-medium) {
+    tr.product-family td:nth-of-type(2) {
+      text-align: left;
+    }
+  }
+  td,
+  th {
+    vertical-align: inherit !important;
+    font-size: 12px !important;
+  }
+  td:first-of-type {
+    @include breakpoint(screen-smallest) {
+      text-align: left;
+    }
+  }
+  th {
+    @include breakpoint(screen-smallest) {
+      background-color: $cool-grey !important;
+      color: white !important;
+    }
+  }
+  .categoryHeaders th {
+    background-color: $cool-grey-dark !important;
+    font-weight: normal;
+    border-bottom: none;
+    border-color: $cool-grey-xxlight;
+  }
+  .categorySubHeaders th {
+    border-top: none;
+    border-color: $cool-grey-xxlight;
+  }
+  span.name {
+    font-family: $headings-font-family;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: $nxp-deep-orange;
+    &:after {
+      content: '\2005 \2005 \f109';
+      font-family: 'icomoon';
+    }
+  }
+  span.name-na {
+    font-family: $headings-font-family;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: $nxp-deep-orange;
+  }
+  a span.name:hover {
+    text-decoration: none;
+  }
+  span.description {
+    font-size: 1em;
+    font-weight: normal;
+  }
+  a:hover span.name {
+    text-decoration: none;
+  }
+  .icon-checkmark3 {
+    color: $nxp-aqua;
+  }
+  // hack the last th to wrap (bug)
+  .tablesaw-cell-label {
+    white-space: normal;
+  }
+  // hide the top th row on mobile
+  .tablesaw-cell-label-top {
+    display: none !important;
+  }
+  // this makes the vertical th headers.
+  // We fix the inconsistent behaviors across browsers with extra markup (th > div > span)
+  // http://stackoverflow.com/questions/4564638/using-position-relative-absolute-within-a-td
+  @include breakpoint (screen-large) {
+    max-width: $screen-lg;
+    overflow-x: hidden;
+    th.tdticks {
+      text-align: left;
+      div {
+        position: relative;
+        height: 110px;
+      }
+      span {
+        position: absolute;
+        display: block;
+        bottom: 0;
+        left: 50%;
+        transform: rotate(-90deg);
+        transform-origin: left;
+        width: 100%;
+        white-space: nowrap;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .keyFeaturesProductTable {
+    td,
+    th {
+      text-align: center;
+    }
+  }
+}

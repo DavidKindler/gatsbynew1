@@ -1,0 +1,370 @@
+// =========================
+// Component Name:  Video Filmstrip
+// Description:     A filmstrip (carousel) component using jQuery Cycle 2 (http://jquery.malsup.com/cycle2/).  
+//                  Adaptive component with an experience for mobile to tablet and a desktop experience.
+// =========================
+.videoFilmStrip-mobile {
+  .cycle-carousel-wrap {
+    width: 85%;
+    transform: translateX(9%);
+    background-color: $nxp-black;
+    a {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    img {
+      border: 1px solid $cool-grey-xlight;
+    }
+  }
+  .-prevNext {
+    @include breakpoint (screen-small) {
+      display: none;
+    }
+    text-align: center;
+    margin-bottom: 1em;
+    a {
+      width: 40%;
+      &:first-of-type {
+        margin-right: 15px;
+      }
+    }
+  }
+  .-overlay {
+    position: relative;
+  }
+  .-meta-count {
+    text-align: center;
+    margin-top: -.5em;
+    margin-bottom: .5em;
+    font-size: $font-size-small;
+    opacity: .8;
+  }
+  .-meta-title {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: .5em;
+    padding: 0 9%;
+    //font-size: $font-size-large;
+  }
+  .-meta-date {
+    width: 50%;
+    float: left;
+    text-transform: uppercase;
+    font-size: $font-size-small;
+    text-align: left;
+    padding-left: 9%;
+    opacity: .8;
+  }
+  .-meta-duration {
+    width: 50%;
+    float: left;
+    text-transform: uppercase;
+    font-size: $font-size-small;
+    text-align: right;
+    padding-right: 9%;
+    opacity: .8;
+  }
+  .-meta-description {
+    font-size: $font-size-small;
+    padding: .5em 9% 0;
+  }
+  .-meta-link {}
+}
+
+.videoFilmStrip-mobile-dev {
+  .cycle-carousel-wrap {
+    background-color: $nxp-black;
+    text-align: center;
+    .-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .-slide {
+      border: 1px solid $cool-grey-xlight;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .-prevNext {
+    text-align: center;
+    margin-bottom: 1em;
+    a {
+      width: 40%;
+      &:first-of-type {
+        margin-right: 15px;
+      }
+    }
+  }
+  .-overlay {
+    position: relative;
+  }
+  .-meta-count {
+    text-align: center;
+    margin-top: 1em;
+    opacity: .8;
+  }
+  .-meta-title {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: .5em;
+    padding: 0 9%;
+    font-size: $font-size-large;
+  }
+  .-meta-date {
+    width: 50%;
+    float: left;
+    text-transform: uppercase;
+    font-size: $font-size-small;
+    text-align: left;
+    padding-left: 9%;
+    opacity: .8;
+  }
+  .-meta-duration {
+    width: 50%;
+    float: left;
+    text-transform: uppercase;
+    font-size: $font-size-small;
+    text-align: right;
+    padding-right: 9%;
+    opacity: .8;
+  }
+  .-meta-description {
+    font-size: $font-size-small;
+    padding: .5em 9% 0;
+    display: block;
+  }
+  .-meta-link {}
+  .-meta-overlay {
+    position: relative;
+    //margin-top: -11.5%;
+    padding: 1em 0;
+    background: rgba(0, 0, 0, .25);
+    text-align: center;
+    color: white;
+  }
+}
+
+.videoFilmStrip-mobile-dev2 {
+  .cycle-carousel-wrap {
+    background-color: rgba(100, 100, 100, .75);
+    text-align: center;
+    .-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .-slide {
+      border: 1px solid $cool-grey-xlight;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .-prevNext {
+    text-align: center;
+    margin-bottom: 1em;
+    a {
+      width: 40%;
+      &:first-of-type {
+        margin-right: 15px;
+      }
+    }
+  }
+  .-overlay {
+    position: relative;
+  }
+  .-meta-count {
+    text-align: center;
+    margin-top: 1em;
+    opacity: .8;
+  }
+  .-meta-title {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: .5em;
+    padding: 0 9%;
+    font-size: $font-size-large;
+  }
+  .-meta-date {
+    width: 50%;
+    float: left;
+    text-transform: uppercase;
+    font-size: $font-size-small;
+    text-align: left;
+    padding-left: 9%;
+    opacity: .8;
+  }
+  .-meta-duration {
+    width: 50%;
+    float: left;
+    text-transform: uppercase;
+    font-size: $font-size-small;
+    text-align: right;
+    padding-right: 9%;
+    opacity: .8;
+  }
+  .-meta-description {
+    font-size: $font-size-small;
+    ////    padding: .5em 9% 0;
+    margin: 1em auto 0;
+    display: block;
+    width: 320px;
+    height: 50px;
+    white-space: pre-wrap;
+    //    overflow-x: hidden;
+    //    text-overflow: ellipsis;
+    text-align: center;
+  }
+  //  .truncate {
+  //    width: 250px;
+  //    white-space: nowrap;
+  //    overflow: hidden;
+  //    text-overflow: ellipsis;
+  //  }
+  .-meta-link {}
+  .-meta-overlay {
+    position: relative;
+    //margin-top: -11.5%;
+    padding: 1em 0;
+    background: rgba(0, 0, 0, .25);
+    text-align: center;
+    color: white;
+  }
+}
+
+.videoFilmStrip-mobile-dev3 {
+  .cycle-carousel-wrap {
+    background-color: rgba(0,0,0,.25);
+    text-align: center;
+    .-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .-slide {
+      border: 1px solid $cool-grey-xlight;
+      max-width: 100%;
+      height: auto;
+    }
+    .test {
+      position: relative;
+//      border: 3px solid red;
+      &:before {
+//        position: absolute;
+//        display: block;
+////        width: 3em;
+////        height: 3em;
+////        background-color: red;
+//        content: "";
+//        font-family: 'icomoon';
+//        content: "\e380";
+//        font-size: 5em;
+//        top: 50%;
+//        left: 50%;
+//        transform-origin:right;
+//        transform: translateX(-50%);
+//        transform: translateY(-50%);
+//        color: white !important;
+            content: "";
+    position: absolute;
+    display: block;
+    width: 4em;
+    height: 4em;
+    left: 50%;
+    top: 50%;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    background: $VideoOverlayButton no-repeat center center; 
+    // background: url("//branding.nxp.com/img/VideoOverlayButton.png") no-repeat center center;
+    //temp till we go to production, then use link below
+    // background: url("//www.nxp.com/assets/images/buttons/VideoOverlayButton.png") no-repeat center center;
+    background-size: 4em 4em;
+    z-index: 1;
+    pointer-events:none;
+      }
+    }
+  }
+  .-prevNext {
+    text-align: center;
+    margin-bottom: 1em;
+    a {
+      width: 40%;
+      &:first-of-type {
+        margin-right: 15px;
+      }
+    }
+  }
+  .borders {
+    border: 1px solid purple;
+  }
+  .-overlay {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: -1.75em;
+    div {
+      //      @extend .borders;
+    }
+  }
+  .-meta-count {
+    font-size: $font-size-small;
+    opacity: .8;
+    flex-grow: 1;
+    align-self: center;
+    color: white;
+    span {
+      padding: .5em;
+      margin-left: .5em;
+      color: white;
+      background-color: rgba(0, 0, 0, .75);
+    }
+  }
+  .-meta-title {
+    font-weight: bold;
+    font-size: $font-size-large;
+    width: 100%;
+  }
+  .-meta-date {
+    text-transform: uppercase;
+    font-size: $font-size-small;
+    opacity: .8;
+    align-self: center;
+    width: 20%;
+    flex-grow: 1;
+    width: 100%;
+    margin-top: 2em;
+//    span {
+//      padding: .5em;
+//      margin-left: .5em;
+//      color: white;
+//      background-color: rgba(0, 0, 0, .75);
+//    }
+  }
+  .-meta-duration {
+    text-transform: uppercase;
+    font-size: $font-size-small;
+    opacity: .8;
+    align-self: center;
+    width: 20%;
+    text-align: right;
+    flex-grow: 1;
+    span {
+      padding: .5em;
+      margin-right: .5em;
+      color: white;
+      background-color: rgba(0, 0, 0, .75);
+    }
+  }
+  .-meta-description {
+    flex-grow: 0;
+    width: 100%;
+  }
+  .-meta-link {}
+  .-meta-overlay {
+    background: rgba(0, 0, 0, .25);
+    color: white;
+  }
+}

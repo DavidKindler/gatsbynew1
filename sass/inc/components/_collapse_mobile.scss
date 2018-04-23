@@ -1,0 +1,109 @@
+// Mixin used instead of Extend to help with Media Query Issues
+// Wanting to define SCSS in one area for better maintainability
+
+//  Collapse Mobile
+//  Creates mobile styles for collapsed panels with arrow animations
+@mixin collapse-mobile {
+
+  h2 {
+    position: relative;
+    display: block;
+    padding: .625em;
+    padding-right: 35px;
+    font-weight: normal;
+    color: #646464;
+    text-align: left;
+    background-color: #ededf0;
+    border: 1px solid #979799;
+    border-radius: 5px;
+    cursor:pointer;
+
+    &:after {
+      content: "\e3b2";
+      position: absolute;
+      top: .65em;
+      right: .5em;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      font-family: "icomoon";
+      font-size: 2rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1;
+      speak: none;
+      background: none;
+      transition: all .35s ease-in;
+    }
+
+    ~ * { display: none; }
+  }
+
+  &.active h2 {
+
+    &:after {
+      -webkit-perspective: 900000px;
+              perspective: 900000px;
+      -webkit-transform:rotate(-180deg);
+          -ms-transform:rotateX(180deg);
+              transform:rotateX(180deg);
+      -webkit-transform-origin: 50% 50%;
+      z-index: 99;
+    }
+
+    ~ * { display: block; }
+  }
+} // end mixin
+
+@media screen and (max-width: $screen-sm - 1px) {
+  .collapse-mobile {
+    @include collapse-mobile;
+  }
+}
+
+@media screen and (min-width: $screen-sm) and (max-width: $screen-md - 1px) {
+  .iu-left.collapse-mobile {
+    @include collapse-mobile;
+  }
+}
+// Original Code
+// 	@media screen and (max-width: $screen-sm - 1px) {
+// 		.collapse-mobile h2 {
+// 			padding: 6px 12px;
+// //			margin-left:-15px;
+// //			margin-right: -15px;
+// 			margin-bottom: 10px;
+// 			border: 1px solid transparent;
+// 			color: $cool-grey;
+// 			background-color: $cool-grey-xxxlight;
+// //			white-space: nowrap;
+// 			box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
+// 			border-radius: 2px;
+// 		}
+// 		.collapse-mobile h2:before {
+// 			font-family: "icomoon";
+// 			-webkit-font-smoothing: antialiased;
+// 			display: inline-block;
+// 			content: "\e3b5";
+// 			color: $cool-grey-xdark;
+// 			-webkit-transform: rotate(90deg);
+// 			-ms-transform: rotate(90deg);
+// 			transform: rotate(0deg);
+// 			transition: all .25s ease-in;
+// 			color: #979799;
+// 			vertical-align: bottom;
+// 		}
+// 		.collapse-mobile.active h2:before {
+// 			-webkit-transform: rotate(90deg);
+// 			-ms-transform: rotate(90deg);
+// 			transform: rotate(90deg);
+// 			transition: all .25s ease-in;
+// 		}
+// 		.collapse-mobile h2 ~ * {
+// 			display: none;
+// 		}
+// 		.collapse-mobile.active h2 ~ * {
+// 			display: block;
+// 		}
+// 	}

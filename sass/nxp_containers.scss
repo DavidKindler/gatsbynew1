@@ -1,0 +1,41 @@
+// DOES NOT SEEM TO DO ANYTHING.  REMOVED THIS FROM GRUNT BUILD.  IF THIS IS USED MAKE SURE GRUNT BUILD IS UPDATE 
+
+// Media Query Breakpoints
+// ----------------------------------------------
+// Extra small screen / phone
+$screen-xs:                  480px;
+
+// Small screen / tablet
+$screen-sm:                  768px;
+
+// Medium screen / desktop
+$screen-md:                  992px;
+
+// Large screen / wide desktop
+$screen-lg:                  1200px;
+
+$cool-grey-xxxlight:		    #f4f4f5;
+
+@import "inc/_mixins_b57029";
+
+//  copying Bootstrap classes in order to %extend for container-fluid
+//  ---------------------------------------------------------------------------
+
+.iw_viewport-wrapper .container-fluid {
+//     margin-left: auto;
+//     margin-right: auto;
+//     padding-left: 15px;
+//     padding-right: 15px;
+//     width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .iw_viewport-wrapper > .container-fluid .iw_columns.col-lg-3 {
+//    display: block; float: left; width: 250px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .iw_viewport-wrapper > .container-fluid .iw_columns.col-lg-3 {
+//    width: 300px;
+  }
+}

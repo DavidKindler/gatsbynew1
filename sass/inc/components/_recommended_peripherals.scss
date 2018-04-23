@@ -1,0 +1,29 @@
+// =========================
+// Component Name:  Recommended Peripherals for Your Application
+// Description:     Selector
+// =========================
+.recommended-peripherals{
+	.control-label {
+		float: left;
+		width: 60px;
+	}
+	.form-control {
+		float: left;
+		margin-left: 10px;
+		width: calc(100% - 70px);
+	}
+	.form-group {
+		margin: 0;
+	}
+	@include breakpoint(screen-small-and-less) {
+		.col-md-6:first-of-type{
+			margin-bottom: 1em;
+		}
+	}
+	.recommended-peripherals-results{
+		//font-size: 14px;		
+	}
+	form {
+		margin-bottom: 0;
+	}
+}

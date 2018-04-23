@@ -1,0 +1,41 @@
+// =========================
+// Component Name: Related Documents
+// Component Type: Table (Dynamic)
+// =========================
+.relatedDocs {
+  margin-bottom: 0.625em;
+  th {
+    white-space: nowrap;
+    &.date {
+      width: 17%;
+    }
+  }
+  th:nth-of-type(2),
+  td:nth-of-type(2) {
+    text-align: center;
+  }
+  td:nth-of-type(2) {
+    white-space: nowrap;
+  }
+}
+
+.relatedDocs-docList {
+  margin-bottom: 0;
+  // remove default list bullets
+  @include nobullets();
+  ;
+}
+
+.relatedDocs-docTitle {
+  margin-bottom: .5em;
+}
+
+.relatedDocs-docList {
+  margin: 0;
+  padding: 0;
+  li:not(.relatedDocs-docTitle) {
+    display: inline;
+    margin-right: 1em;
+    color: $cool-grey;
+  }
+}

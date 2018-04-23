@@ -1,0 +1,1826 @@
+// NXP Color Palette
+$nxp-black:						#19191A;
+$nxp-absolute-black:		    #000000;
+$white:					    #FFFFFF;
+
+$grey-xdark:					#333333;
+$nxp-gray-xdark:				#4C4C4D;
+$nxp-gray-dark:					#646464;
+$nxp-gray:						#979799;
+$nxp-gray-medium:				#B5B2B1;
+$nxp-gray-light:				#DAD9D7;
+$cool-grey-xxxlight:		    #EDEDF0;
+$nxp-gray-xlight:				#E6E6E6;
+$nxp-gray-xxlight:			    #F2F2F5;
+
+//$nxp-orange:					#F9B500; Original "print" orange
+// new, higher contrast "digital" orange
+//$nxp-orange:					rgba(255,167,0,1); 
+$nxp-orange-66:					#FCCF57;
+$nxp-orange-33:					#FEE7AB;
+$nxp-deep-orange:               #E66A08;
+$nxp-deep-orange-66:		    #EF9D5C;
+$nxp-deep-orange-33:		    #F7CEAE;
+$nxp-pale-blue:					#5E89C1;
+$nxp-pale-blue-66:			    #95B1D6;
+$nxp-pale-blue-33:			    #CAD8EB;
+$nxp-green:						#C9D200;
+$nxp-blue:						#7BB1DB;
+$nxp-petrol-blue:				#007088;
+$nxp-apple-red:					#BC0D0D;
+$nxp-olive-green:				#979200;
+$nxp-aqua:						#00A4A7;
+
+// Variables for Legacy Freescale Carryovers
+$fsl-black:                     $nxp-black;
+$fsl-white:                     $white;
+
+//$fsl-yellow:                    $nxp-orange;
+//$fsl-yellow-xlight:             $cool-grey-xxxlight;
+
+$fsl-gray:                      $nxp-gray;
+$fsl-gray-dark:                 $nxp-gray-dark;
+$fsl-gray-light:                $nxp-gray-light;
+$fsl-gray-medium:               $nxp-gray-medium;
+$fsl-gray-xlight:               $nxp-gray-xlight;
+$fsl-gray-xxlight:              $nxp-gray-xxlight;
+$fsl-slate:                     $nxp-gray;
+
+$fsl-blue:                      $nxp-blue;
+$fsl-blue-light:                $nxp-blue;
+$fsl-blue-xlight:               $nxp-blue;
+$fsl-lightblue:                 $nxp-blue;
+$fsl-lightblue-light:           $nxp-blue;
+
+$fsl-purple:                    $nxp-gray-dark;
+$fsl-purple-light:              $nxp-gray;
+$fsl-purple-xlight:             $nxp-gray-light;
+
+$fsl-green:                     $nxp-green;
+
+// Misc.
+$nxp-body-text:					$nxp-gray-dark;
+$fsl-text-color: 				$nxp-body-text;
+$nxp-subheads:					$grey-xdark;
+
+$nxp-megamenu:					$white;
+
+$nxp-footer-gray:				$nxp-gray-xxlight;
+$nxp-footer-bottom:			    $nxp-gray-xlight;
+
+
+
+
+
+
+
+
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// USAGE 
+// .foo {
+//   color: tint(gold, 62%);
+// }
+// .bar {
+//   background-color: shade(#663399, 42%);
+// }
+//MAP
+$themes: ( theme1: (color: red), theme2: (color: orange), theme3: (color: yellow), theme4: (color: green), theme5: (color: blue));
+// Sass 
+@each $theme,
+$map in $themes {
+  .#{$theme} {
+    color: map-get($map, color);
+  }
+}
+
+// Color Mix Variables
+$mix-lowestend: 10%;
+$mix-lowend: 25%;
+$mix-mid: 50%;
+$mix-highend: 75%;
+$mix-highestend: 90%;
+
+// Color grey Variables
+$grey: #999999;
+$grey-light: tint($grey, $mix-lowend);
+$grey-xlight: tint($grey, $mix-mid);
+$grey-xxlight: tint($grey, $mix-highend);
+$grey-xxxlight: tint($grey, $mix-highestend);
+$grey-dark: shade($grey, $mix-lowend);
+$grey-xdark: shade($grey, $mix-mid);
+$grey-xxdark: shade($grey, $mix-highend);
+$grey-xxxdark: shade($grey, $mix-highestend);
+
+// Color grey Classes
+.grey {
+  background: $grey !important;
+}
+
+.grey-xxxlight {
+  background: $grey-xxxlight !important;
+}
+
+.grey-xxlight {
+  background: $grey-xxlight !important;
+}
+
+.grey-xlight {
+  background: $grey-xlight !important;
+}
+
+.grey-light {
+  background: $grey-light !important;
+}
+
+.grey-dark {
+  background: $grey-dark !important;
+}
+
+.grey-xdark {
+  background: $grey-xdark !important;
+}
+
+.grey-xxdark {
+  background: $grey-xxdark !important;
+}
+
+.grey-xxxdark {
+  background: $grey-xxxdark !important;
+}
+
+.txt-grey {
+  color: $grey !important;
+}
+
+.txt-grey-xxxlight {
+  color: $grey-xxxlight !important;
+}
+
+.txt-grey-xxlight {
+  color: $grey-xxlight !important;
+}
+
+.txt-grey-xlight {
+  color: $grey-xlight !important;
+}
+
+.txt-grey-light {
+  color: $grey-light !important;
+}
+
+.txt-grey-dark {
+  color: $grey-dark !important;
+}
+
+.txt-grey-xdark {
+  color: $grey-xdark !important;
+}
+
+.txt-grey-xxdark {
+  color: $grey-xxdark !important;
+}
+
+.txt-grey-xxxdark {
+  color: $grey-xxxdark !important;
+}
+
+// Color warm-grey Variables
+$warm-grey: #999694;
+$warm-grey-light: tint($warm-grey, $mix-lowend);
+$warm-grey-xlight: tint($warm-grey, $mix-mid);
+$warm-grey-xxlight: tint($warm-grey, $mix-highend);
+$warm-grey-xxxlight: tint($grey, $mix-highestend);
+$warm-grey-dark: shade($warm-grey, $mix-lowend);
+$warm-grey-xdark: shade($warm-grey, $mix-mid);
+$warm-grey-xxdark: shade($warm-grey, $mix-highend);
+$warm-grey-xxxdark: shade($grey, $mix-highestend);
+// Color warm-grey Classes
+.warm-grey {
+  background: $warm-grey !important;
+}
+
+.warm-grey-xxxlight {
+  background: $warm-grey-xxxlight !important;
+}
+
+.warm-grey-xxlight {
+  background: $warm-grey-xxlight !important;
+}
+
+.warm-grey-xlight {
+  background: $warm-grey-xlight !important;
+}
+
+.warm-grey-light {
+  background: $warm-grey-light !important;
+}
+
+.warm-grey-dark {
+  background: $warm-grey-dark !important;
+}
+
+.warm-grey-xdark {
+  background: $warm-grey-xdark !important;
+}
+
+.warm-grey-xxdark {
+  background: $warm-grey-xxdark !important;
+}
+
+.warm-grey-xxxdark {
+  background: $warm-grey-xxxdark !important;
+}
+
+.txt-warm-grey {
+  color: $warm-grey !important;
+}
+
+.txt-warm-grey-xxxlight {
+  color: $warm-grey-xxxlight !important;
+}
+
+.txt-warm-grey-xxlight {
+  color: $warm-grey-xxlight !important;
+}
+
+.txt-warm-grey-xlight {
+  color: $warm-grey-xlight !important;
+}
+
+.txt-warm-grey-light {
+  color: $warm-grey-light !important;
+}
+
+.txt-warm-grey-dark {
+  color: $warm-grey-dark !important;
+}
+
+.txt-warm-grey-xdark {
+  color: $warm-grey-xdark !important;
+}
+
+.txt-warm-grey-xxdark {
+  color: $warm-grey-xxdark !important;
+}
+
+.txt-warm-grey-xxxdark {
+  color: $warm-grey-xxxdark !important;
+}
+
+// Color cool-grey Variables
+$cool-grey: #949499;
+$cool-grey-light: tint($cool-grey, $mix-lowend);
+$cool-grey-xlight: tint($cool-grey, $mix-mid);
+$cool-grey-xxlight: tint($cool-grey, $mix-highend);
+$cool-grey-xxxlight: tint($cool-grey, $mix-highestend);
+$cool-grey-dark: shade($cool-grey, $mix-lowend);
+$cool-grey-xdark: shade($cool-grey, $mix-mid);
+$cool-grey-xxdark: shade($cool-grey, $mix-highend);
+$cool-grey-xxxdark: shade($cool-grey, $mix-highestend);
+// Color cool-grey Classes
+.cool-grey {
+  background: $cool-grey !important;
+}
+
+.cool-grey-xxxlight {
+  background: $cool-grey-xxxlight !important;
+}
+
+.cool-grey-xxlight {
+  background: $cool-grey-xxlight !important;
+}
+
+.cool-grey-xlight {
+  background: $cool-grey-xlight !important;
+}
+
+.cool-grey-light {
+  background: $cool-grey-light !important;
+}
+
+.cool-grey-dark {
+  background: $cool-grey-dark !important;
+}
+
+.cool-grey-xdark {
+  background: $cool-grey-xdark !important;
+}
+
+.cool-grey-xxdark {
+  background: $cool-grey-xxdark !important;
+}
+
+.cool-grey-xxxdark {
+  background: $cool-grey-xxxdark !important;
+}
+
+.txt-cool-grey {
+  color: $cool-grey !important;
+}
+
+.txt-cool-grey-xxxlight {
+  color: $cool-grey-xxxlight !important;
+}
+
+.txt-cool-grey-xxlight {
+  color: $cool-grey-xxlight !important;
+}
+
+.txt-cool-grey-xlight {
+  color: $cool-grey-xlight !important;
+}
+
+.txt-cool-grey-light {
+  color: $cool-grey-light !important;
+}
+
+.txt-cool-grey-dark {
+  color: $cool-grey-dark !important;
+}
+
+.txt-cool-grey-xdark {
+  color: $cool-grey-xdark !important;
+}
+
+.txt-cool-grey-xxdark {
+  color: $cool-grey-xxdark !important;
+}
+
+.txt-cool-grey-xxxdark {
+  color: $cool-grey-xxxdark !important;
+}
+
+
+// Color nxp-blue Variables
+//$nxp-blue: #7BB1DB;
+$nxp-blue: #65abe2;
+$nxp-blue-light: tint($nxp-blue, $mix-lowend);
+$nxp-blue-xlight: tint($nxp-blue, $mix-mid);
+$nxp-blue-xxlight: tint($nxp-blue, $mix-highend);
+$nxp-blue-xxxlight: tint($nxp-blue, $mix-highestend);
+$nxp-blue-dark: shade($nxp-blue, $mix-lowend);
+$nxp-blue-xdark: shade($nxp-blue, $mix-mid);
+$nxp-blue-xxdark: shade($nxp-blue, $mix-highend);
+$nxp-blue-xxxdark: shade($nxp-blue, $mix-highestend);
+// Color nxp-blue Classes
+.nxp-blue {
+  background: $nxp-blue !important;
+}
+
+.nxp-blue-xxxlight {
+  background: $nxp-blue-xxxlight !important;
+}
+
+.nxp-blue-xxlight {
+  background: $nxp-blue-xxlight !important;
+}
+
+.nxp-blue-xlight {
+  background: $nxp-blue-xlight !important;
+}
+
+.nxp-blue-light {
+  background: $nxp-blue-light !important;
+}
+
+.nxp-blue-dark {
+  background: $nxp-blue-dark !important;
+}
+
+.nxp-blue-xdark {
+  background: $nxp-blue-xdark !important;
+}
+
+.nxp-blue-xxdark {
+  background: $nxp-blue-xxdark !important;
+}
+
+.nxp-blue-xxxdark {
+  background: $nxp-blue-xxxdark !important;
+}
+
+.txt-nxp-blue {
+  color: $nxp-blue !important;
+}
+
+.txt-nxp-blue-xxxlight {
+  color: $nxp-blue-xxxlight !important;
+}
+
+.txt-nxp-blue-xxlight {
+  color: $nxp-blue-xxlight !important;
+}
+
+.txt-nxp-blue-xlight {
+  color: $nxp-blue-xlight !important;
+}
+
+.txt-nxp-blue-light {
+  color: $nxp-blue-light !important;
+}
+
+.txt-nxp-blue-dark {
+  color: $nxp-blue-dark !important;
+}
+
+.txt-nxp-blue-xdark {
+  color: $nxp-blue-xdark !important;
+}
+
+.txt-nxp-blue-xxdark {
+  color: $nxp-blue-xxdark !important;
+}
+
+.txt-nxp-blue-xxxdark {
+  color: $nxp-blue-xxxdark !important;
+}
+
+// Color nxp-orange Variables
+//$nxp-orange: #F9B500;
+$nxp-orange: #ffa700;
+$nxp-orange-light: tint($nxp-orange, $mix-lowend);
+$nxp-orange-xlight: tint($nxp-orange, $mix-mid);
+$nxp-orange-xxlight: tint($nxp-orange, $mix-highend);
+$nxp-orange-xxxlight: tint($nxp-orange, $mix-highestend);
+$nxp-orange-dark: shade($nxp-orange, $mix-lowend);
+$nxp-orange-xdark: shade($nxp-orange, $mix-mid);
+$nxp-orange-xxdark: shade($nxp-orange, $mix-highend);
+$nxp-orange-xxxdark: shade($nxp-orange, $mix-highestend);
+// Color nxp-orange Classes
+.nxp-orange {
+  background: $nxp-orange !important;
+}
+
+.nxp-orange-xxxlight {
+  background: $nxp-orange-xxxlight !important;
+}
+
+.nxp-orange-xxlight {
+  background: $nxp-orange-xxlight !important;
+}
+
+.nxp-orange-xlight {
+  background: $nxp-orange-xlight !important;
+}
+
+.nxp-orange-light {
+  background: $nxp-orange-light !important;
+}
+
+.nxp-orange-dark {
+  background: $nxp-orange-dark !important;
+}
+
+.nxp-orange-xdark {
+  background: $nxp-orange-xdark !important;
+}
+
+.nxp-orange-xxdark {
+  background: $nxp-orange-xxdark !important;
+}
+
+.nxp-orange-xxxdark {
+  background: $nxp-orange-xxxdark !important;
+}
+
+.txt-nxp-orange {
+  color: $nxp-orange !important;
+}
+
+.txt-nxp-orange-xxxlight {
+  color: $nxp-orange-xxxlight !important;
+}
+
+.txt-nxp-orange-xxlight {
+  color: $nxp-orange-xxlight !important;
+}
+
+.txt-nxp-orange-xlight {
+  color: $nxp-orange-xlight !important;
+}
+
+.txt-nxp-orange-light {
+  color: $nxp-orange-light !important;
+}
+
+.txt-nxp-orange-dark {
+  color: $nxp-orange-dark !important;
+}
+
+.txt-nxp-orange-xdark {
+  color: $nxp-orange-xdark !important;
+}
+
+.txt-nxp-orange-xxdark {
+  color: $nxp-orange-xxdark !important;
+}
+
+.txt-nxp-orange-xxxdark {
+  color: $nxp-orange-xxxdark !important;
+}
+
+// Color nxp-green Variables
+//$nxp-green: #C9D200;
+$nxp-green: #b0ca00;
+$nxp-green-light: tint($nxp-green, $mix-lowend);
+$nxp-green-xlight: tint($nxp-green, $mix-mid);
+$nxp-green-xxlight: tint($nxp-green, $mix-highend);
+$nxp-green-xxxlight: tint($nxp-green, $mix-highestend);
+$nxp-green-dark: shade($nxp-green, $mix-lowend);
+$nxp-green-xdark: shade($nxp-green, $mix-mid);
+$nxp-green-xxdark: shade($nxp-green, $mix-highend);
+$nxp-green-xxxdark: shade($nxp-green, $mix-highestend);
+// Color nxp-green Classes
+.nxp-green {
+  background: $nxp-green !important;
+}
+
+.nxp-green-xxxlight {
+  background: $nxp-green-xxxlight !important;
+}
+
+.nxp-green-xxlight {
+  background: $nxp-green-xxlight !important;
+}
+
+.nxp-green-xlight {
+  background: $nxp-green-xlight !important;
+}
+
+.nxp-green-light {
+  background: $nxp-green-light !important;
+}
+
+.nxp-green-dark {
+  background: $nxp-green-dark !important;
+}
+
+.nxp-green-xdark {
+  background: $nxp-green-xdark !important;
+}
+
+.nxp-green-xxdark {
+  background: $nxp-green-xxdark !important;
+}
+
+.nxp-green-xxxdark {
+  background: $nxp-green-xxxdark !important;
+}
+
+.txt-nxp-green {
+  color: $nxp-green !important;
+}
+
+.txt-nxp-green-xxxlight {
+  color: $nxp-green-xxxlight !important;
+}
+
+.txt-nxp-green-xxlight {
+  color: $nxp-green-xxlight !important;
+}
+
+.txt-nxp-green-xlight {
+  color: $nxp-green-xlight !important;
+}
+
+.txt-nxp-green-light {
+  color: $nxp-green-light !important;
+}
+
+.txt-nxp-green-dark {
+  color: $nxp-green-dark !important;
+}
+
+.txt-nxp-green-xdark {
+  color: $nxp-green-xdark !important;
+}
+
+.txt-nxp-green-xxdark {
+  color: $nxp-green-xxdark !important;
+}
+
+.txt-nxp-green-xxxdark {
+  color: $nxp-green-xxxdark !important;
+}
+
+// Color pale-aqua Variables
+$pale-aqua: #9ED3CA;
+$pale-aqua-light: tint($pale-aqua, $mix-lowend);
+$pale-aqua-xlight: tint($pale-aqua, $mix-mid);
+$pale-aqua-xxlight: tint($pale-aqua, $mix-highend);
+$pale-aqua-xxxlight: tint($pale-aqua, $mix-highestend);
+$pale-aqua-dark: shade($pale-aqua, $mix-lowend);
+$pale-aqua-xdark: shade($pale-aqua, $mix-mid);
+$pale-aqua-xxdark: shade($pale-aqua, $mix-highend);
+$pale-aqua-xxxdark: shade($pale-aqua, $mix-highestend);
+// Color pale-aqua Classes
+.pale-aqua {
+  background: $pale-aqua !important;
+}
+
+.pale-aqua-xxxlight {
+  background: $pale-aqua-xxxlight !important;
+}
+
+.pale-aqua-xxlight {
+  background: $pale-aqua-xxlight !important;
+}
+
+.pale-aqua-xlight {
+  background: $pale-aqua-xlight !important;
+}
+
+.pale-aqua-light {
+  background: $pale-aqua-light !important;
+}
+
+.pale-aqua-dark {
+  background: $pale-aqua-dark !important;
+}
+
+.pale-aqua-xdark {
+  background: $pale-aqua-xdark !important;
+}
+
+.pale-aqua-xxdark {
+  background: $pale-aqua-xxdark !important;
+}
+
+.pale-aqua-xxxdark {
+  background: $pale-aqua-xxxdark !important;
+}
+
+.txt-pale-aqua {
+  color: $pale-aqua !important;
+}
+
+.txt-pale-aqua-xxxlight {
+  color: $pale-aqua-xxxlight !important;
+}
+
+.txt-pale-aqua-xxlight {
+  color: $pale-aqua-xxlight !important;
+}
+
+.txt-pale-aqua-xlight {
+  color: $pale-aqua-xlight !important;
+}
+
+.txt-pale-aqua-light {
+  color: $pale-aqua-light !important;
+}
+
+.txt-pale-aqua-dark {
+  color: $pale-aqua-dark !important;
+}
+
+.txt-pale-aqua-xdark {
+  color: $pale-aqua-xdark !important;
+}
+
+.txt-pale-aqua-xxdark {
+  color: $pale-aqua-xxdark !important;
+}
+
+.txt-pale-aqua-xxxdark {
+  color: $pale-aqua-xxxdark !important;
+}
+
+// Color deep-green Variables
+$deep-green: #005042;
+$deep-green-light: tint($deep-green, $mix-lowend);
+$deep-green-xlight: tint($deep-green, $mix-mid);
+$deep-green-xxlight: tint($deep-green, $mix-highend);
+$deep-green-xxxlight: tint($deep-green, $mix-highestend);
+$deep-green-dark: shade($deep-green, $mix-lowend);
+$deep-green-xdark: shade($deep-green, $mix-mid);
+$deep-green-xxdark: shade($deep-green, $mix-highend);
+$deep-green-xxxdark: shade($deep-green, $mix-highestend);
+// Color deep-green Classes
+.deep-green {
+  background: $deep-green !important;
+}
+
+.deep-green-xxxlight {
+  background: $deep-green-xxxlight !important;
+}
+
+.deep-green-xxlight {
+  background: $deep-green-xxlight !important;
+}
+
+.deep-green-xlight {
+  background: $deep-green-xlight !important;
+}
+
+.deep-green-light {
+  background: $deep-green-light !important;
+}
+
+.deep-green-dark {
+  background: $deep-green-dark !important;
+}
+
+.deep-green-xdark {
+  background: $deep-green-xdark !important;
+}
+
+.deep-green-xxdark {
+  background: $deep-green-xxdark !important;
+}
+
+.deep-green-xxxdark {
+  background: $deep-green-xxxdark !important;
+}
+
+.txt-deep-green {
+  color: $deep-green !important;
+}
+
+.txt-deep-green-xxxlight {
+  color: $deep-green-xxxlight !important;
+}
+
+.txt-deep-green-xxlight {
+  color: $deep-green-xxlight !important;
+}
+
+.txt-deep-green-xlight {
+  color: $deep-green-xlight !important;
+}
+
+.txt-deep-green-light {
+  color: $deep-green-light !important;
+}
+
+.txt-deep-green-dark {
+  color: $deep-green-dark !important;
+}
+
+.txt-deep-green-xdark {
+  color: $deep-green-xdark !important;
+}
+
+.txt-deep-green-xxdark {
+  color: $deep-green-xxdark !important;
+}
+
+.txt-deep-green-xxxdark {
+  color: $deep-green-xxxdark !important;
+}
+
+// Color petrol-blue Variables
+$petrol-blue: #007088;
+$petrol-blue-light: tint($petrol-blue, $mix-lowend);
+$petrol-blue-xlight: tint($petrol-blue, $mix-mid);
+$petrol-blue-xxlight: tint($petrol-blue, $mix-highend);
+$petrol-blue-xxxlight: tint($petrol-blue, $mix-highestend);
+$petrol-blue-dark: shade($petrol-blue, $mix-lowend);
+$petrol-blue-xdark: shade($petrol-blue, $mix-mid);
+$petrol-blue-xxdark: shade($petrol-blue, $mix-highend);
+$petrol-blue-xxxdark: shade($petrol-blue, $mix-highestend);
+// Color petrol-blue Classes
+.petrol-blue {
+  background: $petrol-blue !important;
+}
+
+.petrol-blue-xxxlight {
+  background: $petrol-blue-xxxlight !important;
+}
+
+.petrol-blue-xxlight {
+  background: $petrol-blue-xxlight !important;
+}
+
+.petrol-blue-xlight {
+  background: $petrol-blue-xlight !important;
+}
+
+.petrol-blue-light {
+  background: $petrol-blue-light !important;
+}
+
+.petrol-blue-dark {
+  background: $petrol-blue-dark !important;
+}
+
+.petrol-blue-xdark {
+  background: $petrol-blue-xdark !important;
+}
+
+.petrol-blue-xxdark {
+  background: $petrol-blue-xxdark !important;
+}
+
+.petrol-blue-xxxdark {
+  background: $petrol-blue-xxxdark !important;
+}
+
+.txt-petrol-blue {
+  color: $petrol-blue !important;
+}
+
+.txt-petrol-blue-xxxlight {
+  color: $petrol-blue-xxxlight !important;
+}
+
+.txt-petrol-blue-xxlight {
+  color: $petrol-blue-xxlight !important;
+}
+
+.txt-petrol-blue-xlight {
+  color: $petrol-blue-xlight !important;
+}
+
+.txt-petrol-blue-light {
+  color: $petrol-blue-light !important;
+}
+
+.txt-petrol-blue-dark {
+  color: $petrol-blue-dark !important;
+}
+
+.txt-petrol-blue-xdark {
+  color: $petrol-blue-xdark !important;
+}
+
+.txt-petrol-blue-xxdark {
+  color: $petrol-blue-xxdark !important;
+}
+
+.txt-petrol-blue-xxxdark {
+  color: $petrol-blue-xxxdark !important;
+}
+
+// Color olive-green Variables
+$olive-green: #979200;
+$olive-green-light: tint($olive-green, $mix-lowend);
+$olive-green-xlight: tint($olive-green, $mix-mid);
+$olive-green-xxlight: tint($olive-green, $mix-highend);
+$olive-green-xxxlight: tint($olive-green, $mix-highestend);
+$olive-green-dark: shade($olive-green, $mix-lowend);
+$olive-green-xdark: shade($olive-green, $mix-mid);
+$olive-green-xxdark: shade($olive-green, $mix-highend);
+$olive-green-xxxdark: shade($olive-green, $mix-highestend);
+// Color olive-green Classes
+.olive-green {
+  background: $olive-green !important;
+}
+
+.olive-green-xxxlight {
+  background: $olive-green-xxxlight !important;
+}
+
+.olive-green-xxlight {
+  background: $olive-green-xxlight !important;
+}
+
+.olive-green-xlight {
+  background: $olive-green-xlight !important;
+}
+
+.olive-green-light {
+  background: $olive-green-light !important;
+}
+
+.olive-green-dark {
+  background: $olive-green-dark !important;
+}
+
+.olive-green-xdark {
+  background: $olive-green-xdark !important;
+}
+
+.olive-green-xxdark {
+  background: $olive-green-xxdark !important;
+}
+
+.olive-green-xxxdark {
+  background: $olive-green-xxxdark !important;
+}
+
+.txt-olive-green {
+  color: $olive-green !important;
+}
+
+.txt-olive-green-xxxlight {
+  color: $olive-green-xxxlight !important;
+}
+
+.txt-olive-green-xxlight {
+  color: $olive-green-xxlight !important;
+}
+
+.txt-olive-green-xlight {
+  color: $olive-green-xlight !important;
+}
+
+.txt-olive-green-light {
+  color: $olive-green-light !important;
+}
+
+.txt-olive-green-dark {
+  color: $olive-green-dark !important;
+}
+
+.txt-olive-green-xdark {
+  color: $olive-green-xdark !important;
+}
+
+.txt-olive-green-xxdark {
+  color: $olive-green-xxdark !important;
+}
+
+.txt-olive-green-xxxdark {
+  color: $olive-green-xxxdark !important;
+}
+
+// Color pale-blue Variables
+$pale-blue: #5E89C1;
+$pale-blue-light: tint($pale-blue, $mix-lowend);
+$pale-blue-xlight: tint($pale-blue, $mix-mid);
+$pale-blue-xxlight: tint($pale-blue, $mix-highend);
+$pale-blue-xxxlight: tint($pale-blue, $mix-highestend);
+$pale-blue-dark: shade($pale-blue, $mix-lowend);
+$pale-blue-xdark: shade($pale-blue, $mix-mid);
+$pale-blue-xxdark: shade($pale-blue, $mix-highend);
+$pale-blue-xxxdark: shade($pale-blue, $mix-highestend);
+// Color pale-blue Classes
+.pale-blue {
+  background: $pale-blue !important;
+}
+
+.pale-blue-xxxlight {
+  background: $pale-blue-xxxlight !important;
+}
+
+.pale-blue-xxlight {
+  background: $pale-blue-xxlight !important;
+}
+
+.pale-blue-xlight {
+  background: $pale-blue-xlight !important;
+}
+
+.pale-blue-light {
+  background: $pale-blue-light !important;
+}
+
+.pale-blue-dark {
+  background: $pale-blue-dark !important;
+}
+
+.pale-blue-xdark {
+  background: $pale-blue-xdark !important;
+}
+
+.pale-blue-xxdark {
+  background: $pale-blue-xxdark !important;
+}
+
+.pale-blue-xxxdark {
+  background: $pale-blue-xxxdark !important;
+}
+
+.txt-pale-blue {
+  color: $pale-blue !important;
+}
+
+.txt-pale-blue-xxxlight {
+  color: $pale-blue-xxxlight !important;
+}
+
+.txt-pale-blue-xxlight {
+  color: $pale-blue-xxlight !important;
+}
+
+.txt-pale-blue-xlight {
+  color: $pale-blue-xlight !important;
+}
+
+.txt-pale-blue-light {
+  color: $pale-blue-light !important;
+}
+
+.txt-pale-blue-dark {
+  color: $pale-blue-dark !important;
+}
+
+.txt-pale-blue-xdark {
+  color: $pale-blue-xdark !important;
+}
+
+.txt-pale-blue-xxdark {
+  color: $pale-blue-xxdark !important;
+}
+
+.txt-pale-blue-xxxdark {
+  color: $pale-blue-xxxdark !important;
+}
+
+// Color deep-blue Variables
+$deep-blue: #003883;
+$deep-blue-light: tint($deep-blue, $mix-lowend);
+$deep-blue-xlight: tint($deep-blue, $mix-mid);
+$deep-blue-xxlight: tint($deep-blue, $mix-highend);
+$deep-blue-xxxlight: tint($deep-blue, $mix-highestend);
+$deep-blue-dark: shade($deep-blue, $mix-lowend);
+$deep-blue-xdark: shade($deep-blue, $mix-mid);
+$deep-blue-xxdark: shade($deep-blue, $mix-highend);
+$deep-blue-xxxdark: shade($deep-blue, $mix-highestend);
+// Color deep-blue Classes
+.deep-blue {
+  background: $deep-blue !important;
+}
+
+.deep-blue-xxxlight {
+  background: $deep-blue-xxxlight !important;
+}
+
+.deep-blue-xxlight {
+  background: $deep-blue-xxlight !important;
+}
+
+.deep-blue-xlight {
+  background: $deep-blue-xlight !important;
+}
+
+.deep-blue-light {
+  background: $deep-blue-light !important;
+}
+
+.deep-blue-dark {
+  background: $deep-blue-dark !important;
+}
+
+.deep-blue-xdark {
+  background: $deep-blue-xdark !important;
+}
+
+.deep-blue-xxdark {
+  background: $deep-blue-xxdark !important;
+}
+
+.deep-blue-xxxdark {
+  background: $deep-blue-xxxdark !important;
+}
+
+.txt-deep-blue {
+  color: $deep-blue !important;
+}
+
+.txt-deep-blue-xxxlight {
+  color: $deep-blue-xxxlight !important;
+}
+
+.txt-deep-blue-xxlight {
+  color: $deep-blue-xxlight !important;
+}
+
+.txt-deep-blue-xlight {
+  color: $deep-blue-xlight !important;
+}
+
+.txt-deep-blue-light {
+  color: $deep-blue-light !important;
+}
+
+.txt-deep-blue-dark {
+  color: $deep-blue-dark !important;
+}
+
+.txt-deep-blue-xdark {
+  color: $deep-blue-xdark !important;
+}
+
+.txt-deep-blue-xxdark {
+  color: $deep-blue-xxdark !important;
+}
+
+.txt-deep-blue-xxxdark {
+  color: $deep-blue-xxxdark !important;
+}
+
+// Color purple Variables
+$purple: #50227B;
+$purple-light: tint($purple, $mix-lowend);
+$purple-xlight: tint($purple, $mix-mid);
+$purple-xxlight: tint($purple, $mix-highend);
+$purple-xxxlight: tint($purple, $mix-highestend);
+$purple-dark: shade($purple, $mix-lowend);
+$purple-xdark: shade($purple, $mix-mid);
+$purple-xxdark: shade($purple, $mix-highend);
+$purple-xxxdark: shade($purple, $mix-highestend);
+// Color purple Classes
+.purple {
+  background: $purple !important;
+}
+
+.purple-xxxlight {
+  background: $purple-xxxlight !important;
+}
+
+.purple-xxlight {
+  background: $purple-xxlight !important;
+}
+
+.purple-xlight {
+  background: $purple-xlight !important;
+}
+
+.purple-light {
+  background: $purple-light !important;
+}
+
+.purple-dark {
+  background: $purple-dark !important;
+}
+
+.purple-xdark {
+  background: $purple-xdark !important;
+}
+
+.purple-xxdark {
+  background: $purple-xxdark !important;
+}
+
+.purple-xxxdark {
+  background: $purple-xxxdark !important;
+}
+
+
+.txt-purple {
+  color: $purple !important;
+}
+
+.txt-purple-xxxlight {
+  color: $purple-xxxlight !important;
+}
+
+.txt-purple-xxlight {
+  color: $purple-xxlight !important;
+}
+
+.txt-purple-xlight {
+  color: $purple-xlight !important;
+}
+
+.txt-purple-light {
+  color: $purple-light !important;
+}
+
+.txt-purple-dark {
+  color: $purple-dark !important;
+}
+
+.txt-purple-xdark {
+  color: $purple-xdark !important;
+}
+
+.txt-purple-xxdark {
+  color: $purple-xxdark !important;
+}
+
+.txt-purple-xxxdark {
+  color: $purple-xxxdark !important;
+}
+
+// Color magenta Variables
+$magenta: #E2007B;
+$magenta-light: tint($magenta, $mix-lowend);
+$magenta-xlight: tint($magenta, $mix-mid);
+$magenta-xxlight: tint($magenta, $mix-highend);
+$magenta-xxxlight: tint($magenta, $mix-highestend);
+$magenta-dark: shade($magenta, $mix-lowend);
+$magenta-xdark: shade($magenta, $mix-mid);
+$magenta-xxdark: shade($magenta, $mix-highend);
+$magenta-xxxdark: shade($magenta, $mix-highestend);
+// Color magenta Classes
+.magenta {
+  background: $magenta;
+}
+
+.magenta-xxxlight {
+  background: $magenta-xxxlight !important;
+}
+
+.magenta-xxlight {
+  background: $magenta-xxlight !important;
+}
+
+.magenta-xlight {
+  background: $magenta-xlight !important;
+}
+
+.magenta-light {
+  background: $magenta-light !important;
+}
+
+.magenta-dark {
+  background: $magenta-dark !important;
+}
+
+.magenta-xdark {
+  background: $magenta-xdark !important;
+}
+
+.magenta-xxdark {
+  background: $magenta-xxdark !important;
+}
+
+.magenta-xxxdark {
+  background: $magenta-xxxdark !important;
+}
+
+.txt-magenta {
+  color: $magenta !important;
+}
+
+.txt-magenta-xxxlight {
+  color: $magenta-xxxlight !important;
+}
+
+.txt-magenta-xxlight {
+  color: $magenta-xxlight !important;
+}
+
+.txt-magenta-xlight {
+  color: $magenta-xlight !important;
+}
+
+.txt-magenta-light {
+  color: $magenta-light !important;
+}
+
+.txt-magenta-dark {
+  color: $magenta-dark !important;
+}
+
+.txt-magenta-xdark {
+  color: $magenta-xdark !important;
+}
+
+.txt-magenta-xxdark {
+  color: $magenta-xxdark !important;
+}
+
+.txt-magenta-xxxdark {
+  color: $magenta-xxxdark !important;
+}
+
+// Color red Variables
+$red: #E3004A;
+$red-light: tint($red, $mix-lowend);
+$red-xlight: tint($red, $mix-mid);
+$red-xxlight: tint($red, $mix-highend);
+$red-xxxlight: tint($red, $mix-highestend);
+$red-dark: shade($red, $mix-lowend);
+$red-xdark: shade($red, $mix-mid);
+$red-xxdark: shade($red, $mix-highend);
+$red-xxxdark: shade($red, $mix-highestend);
+// Color red Classes
+.red {
+  background: $red !important;
+}
+
+.red-xxxlight {
+  background: $red-xxxlight !important;
+}
+
+.red-xxlight {
+  background: $red-xxlight !important;
+}
+
+.red-xlight {
+  background: $red-xlight !important;
+}
+
+.red-light {
+  background: $red-light !important;
+}
+
+.red-dark {
+  background: $red-dark !important;
+}
+
+.red-xdark {
+  background: $red-xdark !important;
+}
+
+.red-xxdark {
+  background: $red-xxdark !important;
+}
+
+.red-xxxdark {
+  background: $red-xxxdark !important;
+}
+
+.txt-red {
+  color: $red !important;
+}
+
+.txt-red-xxxlight {
+  color: $red-xxxlight !important;
+}
+
+.txt-red-xxlight {
+  color: $red-xxlight !important;
+}
+
+.txt-red-xlight {
+  color: $red-xlight !important;
+}
+
+.txt-red-light {
+  color: $red-light !important;
+}
+
+.txt-red-dark {
+  color: $red-dark !important;
+}
+
+.txt-red-xdark {
+  color: $red-xdark !important;
+}
+
+.txt-red-xxdark {
+  color: $red-xxdark !important;
+}
+
+.txt-red-xxxdark {
+  color: $red-xxxdark !important;
+}
+
+// Color deep-red Variables
+$deep-red: #BC0D0D;
+$deep-red-light: tint($deep-red, $mix-lowend);
+$deep-red-xlight: tint($deep-red, $mix-mid);
+$deep-red-xxlight: tint($deep-red, $mix-highend);
+$deep-red-xxxlight: tint($deep-red, $mix-highestend);
+$deep-red-dark: shade($deep-red, $mix-lowend);
+$deep-red-xdark: shade($deep-red, $mix-mid);
+$deep-red-xxdark: shade($deep-red, $mix-highend);
+$deep-red-xxxdark: shade($deep-red, $mix-highestend);
+// Color deep-red Classes
+.deep-red {
+  background: $deep-red !important;
+}
+
+.deep-red-xxxlight {
+  background: $deep-red-xxxlight !important;
+}
+
+.deep-red-xxlight {
+  background: $deep-red-xxlight !important;
+}
+
+.deep-red-xlight {
+  background: $deep-red-xlight !important;
+}
+
+.deep-red-light {
+  background: $deep-red-light !important;
+}
+
+.deep-red-dark {
+  background: $deep-red-dark !important;
+}
+
+.deep-red-xdark {
+  background: $deep-red-xdark !important;
+}
+
+.deep-red-xxdark {
+  background: $deep-red-xxdark !important;
+}
+
+.deep-red-xxxdark {
+  background: $deep-red-xxxdark !important;
+}
+
+.txt-deep-red {
+  color: $deep-red !important;
+}
+
+.txt-deep-red-xxxlight {
+  color: $deep-red-xxxlight !important;
+}
+
+.txt-deep-red-xxlight {
+  color: $deep-red-xxlight !important;
+}
+
+.txt-deep-red-xlight {
+  color: $deep-red-xlight !important;
+}
+
+.txt-deep-red-light {
+  color: $deep-red-light !important;
+}
+
+.txt-deep-red-dark {
+  color: $deep-red-dark !important;
+}
+
+.txt-deep-red-xdark {
+  color: $deep-red-xdark !important;
+}
+
+.txt-deep-red-xxdark {
+  color: $deep-red-xxdark !important;
+}
+
+.txt-deep-red-xxxdark {
+  color: $deep-red-xxxdark !important;
+}
+
+// Color deep-orange Variables
+$deep-orange: #E66A08;
+$deep-orange-light: tint($deep-orange, $mix-lowend);
+$deep-orange-xlight: tint($deep-orange, $mix-mid);
+$deep-orange-xxlight: tint($deep-orange, $mix-highend);
+$deep-orange-xxxlight: tint($deep-orange, $mix-highestend);
+$deep-orange-dark: shade($deep-orange, $mix-lowend);
+$deep-orange-xdark: shade($deep-orange, $mix-mid);
+$deep-orange-xxdark: shade($deep-orange, $mix-highend);
+$deep-orange-xxxdark: shade($deep-orange, $mix-highestend);
+// Color deep-orange Classes
+.deep-orange {
+  background: $deep-orange !important;
+}
+
+.deep-orange-xxxlight {
+  background: $deep-orange-xxxlight !important;
+}
+
+.deep-orange-xxlight {
+  background: $deep-orange-xxlight !important;
+}
+
+.deep-orange-xlight {
+  background: $deep-orange-xlight !important;
+}
+
+.deep-orange-light {
+  background: $deep-orange-light !important;
+}
+
+.deep-orange-dark {
+  background: $deep-orange-dark !important;
+}
+
+.deep-orange-xdark {
+  background: $deep-orange-xdark !important;
+}
+
+.deep-orange-xxdark {
+  background: $deep-orange-xxdark !important;
+}
+
+.deep-orange-xxxdark {
+  background: $deep-orange-xxxdark !important;
+}
+
+.txt-deep-orange {
+  color: $deep-orange !important;
+}
+
+.txt-deep-orange-xxxlight {
+  color: $deep-orange-xxxlight !important;
+}
+
+.txt-deep-orange-xxlight {
+  color: $deep-orange-xxlight !important;
+}
+
+.txt-deep-orange-xlight {
+  color: $deep-orange-xlight !important;
+}
+
+.txt-deep-orange-light {
+  color: $deep-orange-light !important;
+}
+
+.txt-deep-orange-dark {
+  color: $deep-orange-dark !important;
+}
+
+.txt-deep-orange-xdark {
+  color: $deep-orange-xdark !important;
+}
+
+.txt-deep-orange-xxdark {
+  color: $deep-orange-xxdark !important;
+}
+
+.txt-deep-orange-xxxdark {
+  color: $deep-orange-xxxdark !important;
+}
+
+// Color yellow Variables
+$yellow: #FFCF00;
+$yellow-light: tint($yellow, $mix-lowend);
+$yellow-xlight: tint($yellow, $mix-mid);
+$yellow-xxlight: tint($yellow, $mix-highend);
+$yellow-xxxlight: tint($yellow, $mix-highestend);
+$yellow-dark: shade($yellow, $mix-lowend);
+$yellow-xdark: shade($yellow, $mix-mid);
+$yellow-xxdark: shade($yellow, $mix-highend);
+$yellow-xxxdark: shade($yellow, $mix-highestend);
+// Color yellow Classes
+.yellow {
+  background: $yellow !important;
+}
+
+.yellow-xxxlight {
+  background: $yellow-xxxlight !important;
+}
+
+.yellow-xxlight {
+  background: $yellow-xxlight !important;
+}
+
+.yellow-xlight {
+  background: $yellow-xlight !important;
+}
+
+.yellow-light {
+  background: $yellow-light !important;
+}
+
+.yellow-dark {
+  background: $yellow-dark !important;
+}
+
+.yellow-xdark {
+  background: $yellow-xdark !important;
+}
+
+.yellow-xxdark {
+  background: $yellow-xxdark !important;
+}
+
+.yellow-xxxdark {
+  background: $yellow-xxxdark !important;
+}
+
+.txt-yellow {
+  color: $yellow !important;
+}
+
+.txt-yellow-xxxlight {
+  color: $yellow-xxxlight !important;
+}
+
+.txt-yellow-xxlight {
+  color: $yellow-xxlight !important;
+}
+
+.txt-yellow-xlight {
+  color: $yellow-xlight !important;
+}
+
+.txt-yellow-light {
+  color: $yellow-light !important;
+}
+
+.txt-yellow-dark {
+  color: $yellow-dark !important;
+}
+
+.txt-yellow-xdark {
+  color: $yellow-xdark !important;
+}
+
+.txt-yellow-xxdark {
+  color: $yellow-xxdark !important;
+}
+
+.txt-yellow-xxxdark {
+  color: $yellow-xxxdark !important;
+}
+
+// Color Aqua Variables
+$aqua: #00A4A7;
+$aqua-light: tint($aqua, $mix-lowend);
+$aqua-xlight: tint($aqua, $mix-mid);
+$aqua-xxlight: tint($aqua, $mix-highend);
+$aqua-xxxlight: tint($aqua, $mix-highestend);
+$aqua-dark: shade($aqua, $mix-lowend);
+$aqua-xdark: shade($aqua, $mix-mid);
+$aqua-xxdark: shade($aqua, $mix-highend);
+$aqua-xxxdark: shade($aqua, $mix-highestend);
+// Color Aqua Classes
+.aqua {
+  background: $aqua !important;
+}
+
+.aqua-xxxlight {
+  background: $aqua-xxxlight !important;
+}
+
+.aqua-xxlight {
+  background: $aqua-xxlight !important;
+}
+
+.aqua-xlight {
+  background: $aqua-xlight !important;
+}
+
+.aqua-light {
+  background: $aqua-light !important;
+}
+
+.aqua-dark {
+  background: $aqua-dark !important;
+}
+
+.aqua-xdark {
+  background: $aqua-xdark !important;
+}
+
+.aqua-xxdark {
+  background: $aqua-xxdark !important;
+}
+
+.aqua-xxxdark {
+  background: $aqua-xxxdark !important;
+}
+
+.txt-aqua {
+  color: $aqua !important;
+}
+
+.txt-aqua-xxxlight {
+  color: $aqua-xxxlight !important;
+}
+
+.txt-aqua-xxlight {
+  color: $aqua-xxlight !important;
+}
+
+.txt-aqua-xlight {
+  color: $aqua-xlight !important;
+}
+
+.txt-aqua-light {
+  color: $aqua-light !important;
+}
+
+.txt-aqua-dark {
+  color: $aqua-dark !important;
+}
+
+.txt-aqua-xdark {
+  color: $aqua-xdark !important;
+}
+
+.txt-aqua-xxdark {
+  color: $aqua-xxdark !important;
+}
+
+.txt-aqua-xxxdark {
+  color: $aqua-xxxdark !important;
+}
+
+
+
+
+// Color Green Variables
+$green: #00945F;
+$green-light: tint($green, $mix-lowend);
+$green-xlight: tint($green, $mix-mid);
+$green-xxlight: tint($green, $mix-highend);
+$green-xxxlight: tint($green, $mix-highestend);
+$green-dark: shade($green, $mix-lowend);
+$green-xdark: shade($green, $mix-mid);
+$green-xxdark: shade($green, $mix-highend);
+$green-xxxdark: shade($green, $mix-highestend);
+
+// Color Green Classes
+.green {
+  background: $green !important;
+}
+.green-xxxlight {
+  background: $green-xxxlight !important;
+}
+.green-xxlight {
+  background: $green-xxlight !important;
+}
+.green-xlight {
+  background: $green-xlight !important;
+}
+.green-light {
+  background: $green-light !important;
+}
+.green-dark {
+  background: $green-dark !important;
+}
+.green-xdark {
+  background: $green-xdark !important;
+}
+.green-xxdark {
+  background: $green-xxdark !important;
+}
+.green-xxxdark {
+  background: $green-xxxdark !important;
+}
+.txt-green {
+  color: $green !important;
+}
+.txt-green-xxxlight {
+  color: $green-xxxlight !important;
+}
+.txt-green-xxlight {
+  color: $green-xxlight !important;
+}
+.txt-green-xlight {
+  color: $green-xlight !important;
+}
+.txt-green-light {
+  color: $green-light !important;
+}
+.txt-green-dark {
+  color: $green-dark !important;
+}
+.txt-green-xdark {
+  color: $green-xdark !important;
+}
+.txt-green-xxdark {
+  color: $green-xxdark !important;
+}
+.txt-green-xxxdark {
+  color: $green-xxxdark !important;
+}
+
+
+
+
+
+
+// NXP Color Classes
+.nxp-black {background-color: $nxp-black!important;}
+.nxp-absolute-black {background-color: $nxp-absolute-black!important;}
+.nxp-orange {background-color: $nxp-orange!important;}
+.nxp-deep-orange {background-color: $nxp-deep-orange!important;}
+
+.nxp-blue {background-color: $nxp-blue!important;}
+.nxp-green {background-color: $nxp-green!important;}
+
+.nxp-pale-blue {background-color: $nxp-pale-blue!important;}
+.nxp-petrol-blue {background-color: $nxp-petrol-blue!important;}
+.nxp-aqua {background-color: $nxp-aqua!important; }
+.nxp-olive-green {background-color: $nxp-olive-green!important;}
+.nxp-apple-red {background-color: $nxp-apple-red!important;}
+
+.nxp-charcoal {background-color: $grey-xdark!important;}
+.nxp-gray-xdark {background-color: $nxp-gray-xdark!important;}
+.nxp-gray-dark {background-color: $nxp-gray-dark!important;}
+.nxp-gray {background-color: $nxp-gray!important;}
+.nxp-gray-medium {background-color: $nxp-gray-medium!important;}
+.nxp-gray-light {background-color: $nxp-gray-light!important;}
+.nxp-gray-cool-light {background-color: $cool-grey-xxxlight!important;}
+.nxp-gray-xlight {background-color: $nxp-gray-xlight!important;}
+.nxp-gray-xxlight {background-color: $nxp-gray-xxlight!important;}
+
+.nxp-footer-gray {background-color:$nxp-footer-gray !important;}
+.nxp-footer-bottom {background-color:$nxp-footer-bottom!important;}
+
+.nxp-orange-66 {background-color: $nxp-orange-66!important;}
+.nxp-orange-33 {background-color: $nxp-orange-33!important;}
+.nxp-deep-orange-66 {background-color: $nxp-deep-orange-66!important;}
+.nxp-deep-orange-33 {background-color: $nxp-deep-orange-33!important;}
+.nxp-pale-blue-66 {background-color: $nxp-pale-blue-66!important;}
+.nxp-pale-blue-33 {background-color: $nxp-pale-blue-33!important;}
+
+// NXP Text Color Classes
+.nxp-black-text,
+.txt-nxp-black,
+.txt-black {color: $nxp-black!important;}
+.nxp-white-text,
+.txt-nxp-white,
+.txt-white {color: $white!important;}
+.nxp-gray-text {color: $nxp-body-text!important;}
+.nxp-orange-text {color: $nxp-orange!important;}
+.nxp-blue-text {color: $nxp-blue!important;}
+.nxp-petrol-blue-text {color: $nxp-petrol-blue!important;}
+.nxp-green-text {color: $nxp-green!important;}
+.nxp-gray-light-text {color: $nxp-gray-medium!important;}

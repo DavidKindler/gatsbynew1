@@ -1,0 +1,853 @@
+//  ---------------------------------------------------------------------------
+//  Hero Component
+//  ::  Common Styles
+//    ::  Containers
+//    ::  Title
+//    ::  Sub-Title
+//    ::  Text
+//  ::  Level One Styles
+//  ::  Level Two Styles
+//  ::  Level Three Styles
+//  ::  Slider
+//  ::  Video
+//  ---------------------------------------------------------------------------
+
+//  Containers
+//  ----------------------------------------
+.hero {
+  position: relative;
+  padding: 2em 0 2em ($grid-gutter-width / 2);
+  // setting auto height here, adjust min-height per variation
+  height: auto;
+  background: {
+    //    image: ; set inline
+    position: center center;
+    repeat: no-repeat;
+    size: cover;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    display: block;
+    width: calc(100% + #{$grid-gutter-width});
+    height: 100%;
+    background: inherit;
+    transform: translateX(50%);
+  }
+
+  .col-lg-12 .col-lg-9 & {
+    padding-left: 0;
+
+    @include breakpoint(screen-small) {
+      &:before {
+        width: calc(100vw - 250px);
+      }
+    }
+
+    @include breakpoint(screen-large) {
+      &:before {
+        width: calc(100vw - 300px);
+      }
+    }
+  }
+
+  &-container {
+    // outter wrapper needed to vertically center items in IE11
+    // https://github.com/philipwalton/flexbugs#3-min-height-on-a-flex-container-wont-apply-to-its-flex-items
+    display: flex;
+    flex-direction: column; // not necessary, but recommended by Flexbugs
+  }
+
+  &-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    color: $white;
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  //  Title Container
+  //  ----------------------------------------
+  &-title-container {
+  }
+
+  //  Titles
+  //  ----------------------------------------
+  &-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: $white;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  //  Subtitle
+  //  ----------------------------------------
+  &-subtitle {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: $white;
+  }
+
+  //  Text
+  //  ----------------------------------------
+  &-text {
+    color: $white;
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
+}
+
+//  Level One
+//  ---------------------------------------------------------------------------
+.hero-level1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 50vh;
+  // min-height: 350px;
+  min-height: 50vh;
+
+  @include breakpoint(screen-small) {
+  }
+
+  @include breakpoint(screen-medium) {
+  }
+
+  @include breakpoint(screen-large) {
+  }
+
+  //  Content
+  //  ----------------------------------------
+  .hero-content {
+  }
+
+  //  Title Container
+  //  ----------------------------------------
+  .hero-title-container {
+    position: relative;
+    width: 90%;
+    padding: 15px 15px 15px 0;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      width: calc(100% + 30px);
+      height: 100%;
+      background: rgba($absolute-black, 0.5);
+      z-index: -1;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+    //  No Left Nav Styles
+    //  ----------------------------------------
+    @include breakpoint(screen-small) {
+      padding-right: 30px;
+      padding-left: 0;
+
+      &:before {
+        width: calc((100vw - 720px) / 2 + 100%);
+      }
+    }
+
+    @include breakpoint(screen-medium) {
+      width: 75%;
+
+      &:before {
+        width: calc(((100vw - 940px) / 2) + 100%);
+      }
+    }
+
+    @include breakpoint(screen-large) {
+      &:before {
+        width: calc(((100vw - 1140px) / 2) + 100%);
+      }
+    }
+
+    //  Left Nav Styles
+    //  ----------------------------------------
+    .col-lg-12 .col-lg-9 & {
+      @include breakpoint(screen-small) {
+        &:before {
+          width: calc(100% + 30px);
+        }
+      }
+
+      @include breakpoint(screen-medium) {
+        $value: ($screen-md - ($grid-gutter-width * 2));
+        &:before {
+          width: calc(((100vw - #{$value}) / 2) + 100%);
+        }
+      }
+
+      @include breakpoint(screen-large) {
+        $value: ($screen-lg - ($grid-gutter-width * 2));
+        &:before {
+          width: calc(((100vw - #{$value}) / 2) + 100%);
+        }
+      }
+
+      @include breakpoint($screen-xl) {
+        $value: ($screen-xl - ($grid-gutter-width * 2));
+        &:before {
+          width: calc(((100vw - #{$value}) / 2) + 100%);
+        }
+      }
+      // Removing XXL Breakpoint from containers css file
+      // +++ if breakpoint is re-enstated, add this code back in
+      //  ----------------------------------------------------------------------
+      // @include breakpoint($screen-xxl) {
+      //   $value      : ($screen-xxl - ($grid-gutter-width * 2));
+      //   &:before {
+      //     width: calc(((100vw - #{$value}) / 2) + 100%);
+      //   }
+      // }
+    }
+  }
+
+  //  Titles
+  //  ----------------------------------------
+  .hero-title {
+  }
+
+  //  Subtitles
+  //  ----------------------------------------
+  .hero-subtitle {
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 1.2;
+    color: $grey-light;
+  }
+
+  //  Text
+  //  ----------------------------------------
+  .hero-text {
+    width: 90%;
+    padding-right: 15px; // aligns long text with title width above it
+
+    @include breakpoint(screen-small) {
+      padding-right: 30px;
+    }
+
+    @include breakpoint(screen-medium) {
+      width: 75%;
+    }
+
+    @include breakpoint(screen-large) {
+    }
+  }
+}
+
+//  Level Two
+//  ---------------------------------------------------------------------------
+.hero-level2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 35vh;
+  // min-height: 260px;  // may need adjusting depending on content
+  min-height: 35vh;
+
+  @include breakpoint(screen-medium) {
+    // min-height: 190px;
+  }
+
+  //  Content
+  //  ----------------------------------------
+  .hero-content {
+  }
+
+  //  Titles
+  //  ----------------------------------------
+  .hero-title-container {
+  }
+
+  .hero-title {
+  }
+
+  //  Subtitles
+  //  ----------------------------------------
+  .hero-subtitle {
+  }
+
+  //  Text
+  //  ----------------------------------------
+  .hero-text {
+  }
+}
+
+//  Level Three
+//  ---------------------------------------------------------------------------
+.hero-level3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 21vh;
+  // min-height: 260px;  // may need adjusting depending on content
+  min-height: 21vh;
+
+  @include breakpoint(screen-medium) {
+    // min-height: 190px;
+  }
+
+  //  Content
+  //  ----------------------------------------
+  .hero-content {
+  }
+
+  //  Titles
+  //  ----------------------------------------
+  .hero-title {
+  }
+
+  //  Subtitles
+  //  ----------------------------------------
+  .hero-subtitle {
+  }
+
+  //  Text
+  //  ----------------------------------------
+  .hero-text {
+  }
+}
+
+//  Slider
+//  ---------------------------------------------------------------------------
+//  carousel wrapper
+//    carousel-indicators
+//      li
+//    carousel-inner
+//      item
+//        img
+//        carousel-caption
+//    carousel-control.left
+//    carousel-control.right
+
+// .hero-slider {
+//   //  Wrapper
+//   //  -----------------------------------
+//   .carousel-homepage {
+//     margin-bottom: 20px;
+//   }
+//   //  Carousel Indicators
+//   //  ----------------------------------------
+//   .carousel-indicators {
+//     bottom: 0;
+//     width: auto;
+//     margin-left: auto;
+//     background-color: rgba(0, 0, 0, .15);
+//     border-radius: 1em;
+//     padding: .25em 1em;
+//   }
+//
+//   //  Carousel Inner
+//   //  ----------------------------------------
+//   .carousel-inner {
+//     .item {
+//       height: 40vh;
+//       min-height: 300px;
+//       align-items: center;
+//       background: {
+//   //      image: ;
+//         position: center center;
+//         repeat: no-repeat;
+//         size: cover;
+//       }
+//
+//       &-content { }
+//
+//       img {
+//         width: 100%;
+//         max-width: 100%;
+//         height: auto;
+//       }
+//
+//       &.active {
+//         display: flex;
+//       }
+//     }
+//   }
+//
+//   //  Carousel Controls
+//   //  ----------------------------------------
+//   .carousel-control {
+//     width: 30px;
+//     display: flex;
+//     align-items: center;
+//     transition: all .25s ease;
+//
+//     &.left {
+//       margin-left: 30px;
+//       background-image: none;
+//     }
+//
+//     &.right {
+//       margin-right: 30px;
+//       background-image: none;
+//     }
+//
+//     .icon-angle-left,
+//     .icon-angle-right {
+//       font-size: 3em;
+//       color: white;
+//     }
+//
+//     @media screen and (max-width: 1317px) {
+//       display: none;
+//     }
+//   }
+//
+//   .carousel-inner h1,
+//   .carousel-inner .intro {
+//     color: #ffffff;
+//   }
+// }
+
+//  Homepage Slider
+//  ---------------------------------------------------------------------------
+// .homepage-slider {
+//   //  Item Contents
+//   //  ------------------------------------
+//   .article {
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     height: 50vh;
+//     min-height: 320px;
+//     padding: 6em 0;
+//     background: {
+// //      image: ;
+//       position: center center;
+//       repeat: no-repeat;
+//       size: cover;
+//     }
+//     // adding pseudo content for overlay so not necessary to add two background images
+//     //   now you could possibly add a new item and inline style for background-image in HTML
+//     &:before {
+// //      content: "";
+// //      position: absolute;
+// //      top: 0;
+// //      right: 0;
+// //      bottom: 0;
+// //      left: 0;
+// //      background: linear-gradient( rgba($absolute-black, 0.45), rgba($absolute-black, 0.5));
+//     }
+//
+//     //  Background Images
+//     //  :: to update, add new image in img folder named home-slider-*.jpg
+//     &-1 {
+// //      background-image: url('../../assets/img/home-slider-1.jpg');
+//     }
+//
+//     &-2 {
+// //      background-image: url('../../assets/img/home-slider-2.jpg');
+//     }
+//     // adding in case of a third addition
+//     &-3 {
+// //      background-image: url('../../assets/img/home-slider-3.jpg');
+//     }
+//   }
+//
+//   .article-contents {
+//     position: relative;
+//
+//     > * {
+//       color: $white;
+//
+//       @include breakpoint(screen-small) {
+//         max-width: 75%;
+//       }
+//     }
+//   }
+//
+//   //  Carousel Controls
+//   //  ----------------------------------------
+//   .carousel-control {
+//     display: flex;
+//     align-items: center;
+//     width: 30px;
+//     transition: all .25s ease;
+//
+//     &.left {
+//       margin-left: 30px;
+//       background-image: none;
+//     }
+//
+//     &.right {
+//       margin-right: 30px;
+//       background-image: none;
+//     }
+//
+//     .icon-angle-left,
+//     .icon-angle-right {
+//       font-size: 3em;
+//       color: white;
+//     }
+//   }
+//
+//   //  Carousel Indicators
+//   //  ----------------------------------------
+//   .carousel-indicators {
+//     bottom: 0;
+//     width: auto;
+//     padding: .25em 1em;
+//     margin-left: auto;
+//     background-color: rgba(0, 0, 0, .15);
+//     border-radius: 1em;
+//   }
+//
+//   @media screen and (max-width: 1317px) {
+//     .carousel-control {
+//       display: none;
+//     }
+//   }
+// }
+
+//  ---------------------------------------------------------------------------
+//  Hero Video
+//  ::  Container
+//  ::  Video
+//  ::  Overlay
+//  ::  Text
+//  ---------------------------------------------------------------------------
+
+.hero-video {
+  //  this component uses negative left margins for IE11 compatability
+  //  using positive left positions caused scrollbars in IE11 and older FF/Chrome browsers
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: calc(100% + 30px);
+  height: 56.25vw; // set to 16x9 ratio
+  min-height: 320px; // ratio set with min-width on video container for mobile
+  overflow: hidden;
+  padding: 2em 0;
+  margin-left: -15px;
+  background: {
+    // image: ; // set inline and :after content will inherit for opacity overlay
+    image: linear-gradient(
+      to right,
+      rgba($absolute-black, 0.5),
+      rgba($absolute-black, 0) 90%
+    );
+    position: center center;
+    repeat: no-repeat;
+    size: cover;
+  }
+
+  // move to video-wrapper if this causes an issue
+  // sometimes pseudo content on items with display flex have troubles in IE
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+  }
+
+  //  Left Nav Dependent Styles
+  //  ----------------------------------------------------------------------
+  //  No Left Nav
+  @include breakpoint(screen-small) {
+    width: 100vw;
+    min-height: auto;
+    max-height: 350px;
+    margin-left: calc((100vw - 720px) / -2);
+  }
+
+  @include breakpoint(screen-medium) {
+    margin-left: calc((100vw - 940px) / -2);
+  }
+
+  @include breakpoint(screen-large) {
+    margin-left: calc((100vw - 1140px) / -2);
+  }
+
+  // Left Nav
+  .col-lg-12 .col-lg-9 & {
+    @include breakpoint(screen-small) {
+      width: calc(100% + 60px);
+      // account for left nav, keep height in 16x9 aspect ratio
+      height: calc((100vw - 250px) * 0.5626);
+      margin-left: -30px;
+    }
+
+    @include breakpoint(screen-medium) {
+      width: calc(100vw - 250px);
+      margin-left: calc((100vw - #{$both-columns-medium}) / -2);
+    }
+
+    @include breakpoint(screen-large) {
+      width: calc(100vw - 300px);
+      height: calc((100vw - 300px) * 0.5626);
+      margin-left: calc((100vw - #{$both-columns-large}) / -2);
+    }
+
+    @include breakpoint(screen-extra-large) {
+      margin-left: calc((100vw - #{$both-columns-xlarge}) / -2);
+    }
+  }
+
+  //  Video Area
+  //  ------------------------------------------------------------
+  &-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+
+    video {
+      position: relative;
+      top: 50%;
+      display: block;
+      width: 100%;
+      min-width: 680px; // sets min with so lowest screen = 320x320 video, can edit
+      height: auto;
+      margin: 0 auto;
+      transform: translateY(-50%);
+    }
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: translateY(-50%);
+  }
+
+  //  Content Area
+  //  ------------------------------------------------------------
+  &-content {
+    position: relative;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+    z-index: 1;
+
+    //  No Left Nav Template Media Queries
+    //  ------------------------------------
+    @include breakpoint(screen-small) {
+      max-width: 780px;
+    }
+
+    @include breakpoint(screen-medium) {
+      max-width: 1000px;
+    }
+
+    @include breakpoint(screen-large) {
+      max-width: 1200px;
+    }
+
+    //  Left Nav Template Media Queries
+    //  ------------------------------------
+    .col-lg-12 .col-lg-9 & {
+      @include breakpoint(screen-small) {
+        padding: 0 30px;
+      }
+
+      @include breakpoint(screen-medium) {
+        max-width: 742px;
+      }
+
+      @include breakpoint(screen-large) {
+        max-width: 900px;
+      }
+
+      @include breakpoint($screen-xl) {
+        max-width: 1140px;
+      }
+    }
+  }
+
+  //  Title Container
+  //  ------------------------------------------------------------
+  &-title-container {
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  //  Titles
+  //  ----------------------------------------
+  &-title {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: $white;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  //  Subtitle
+  //  ----------------------------------------
+  &-subtitle {
+    position: relative;
+    margin-top: 0;
+    color: $white;
+  }
+
+  //  Text
+  //  ----------------------------------------
+  &-text {
+    color: $white;
+    margin-bottom: 0;
+  }
+
+  //  Level 1 Styles
+  &.level1 {
+    // No Left Nav Styles
+    @include breakpoint(screen-small) {
+      min-height: auto;
+      height: 56.25vw;
+      max-height: 450px; // kicks in around 1100px in left-nav layout
+    }
+
+    //  Content Area
+    //  ------------------------------------------------------------
+    .hero-video-content {
+      position: relative;
+      padding: 0 15px;
+      margin: 0 auto;
+
+      @include breakpoint(screen-small) {
+        padding: 0 30px;
+      }
+    }
+
+    .hero-video-title-container {
+      position: relative;
+      width: 90%;
+      padding: 15px 15px 15px 0;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        width: calc(100% + 30px);
+        height: 100%;
+        background: rgba($absolute-black, 0.5);
+      }
+
+      > :last-child {
+        margin-bottom: 0;
+      }
+
+      //  No Left Nav Styles
+      //  ----------------------------------------
+      @include breakpoint(screen-small) {
+        padding-right: 30px;
+        padding-left: 0;
+
+        &:before {
+          width: calc((100vw - 720px) / 2 + 100%);
+        }
+      }
+
+      @include breakpoint(screen-medium) {
+        width: 75%;
+
+        &:before {
+          width: calc(((100vw - 940px) / 2) + 100%);
+        }
+      }
+
+      @include breakpoint(screen-large) {
+        &:before {
+          width: calc(((100vw - 1140px) / 2) + 100%);
+        }
+      }
+
+      //  Left Nav Styles
+      //  ----------------------------------------
+      .col-lg-12 .col-lg-9 & {
+        @include breakpoint(screen-small) {
+          &:before {
+            width: calc(100% + 30px);
+          }
+        }
+
+        @include breakpoint(screen-medium) {
+          $value: ($screen-md - ($grid-gutter-width * 2));
+          &:before {
+            width: calc(((100vw - #{$value}) / 2) + 100%);
+          }
+        }
+
+        @include breakpoint(screen-large) {
+          $value: ($screen-lg - ($grid-gutter-width * 2));
+          &:before {
+            width: calc(((100vw - #{$value}) / 2) + 100%);
+          }
+        }
+
+        @include breakpoint($screen-xl) {
+          $value: ($screen-xl - ($grid-gutter-width * 2));
+          &:before {
+            width: calc(((100vw - #{$value}) / 2) + 100%);
+          }
+        }
+        // Removing XXL Breakpoint from containers css file
+        // +++ if breakpoint is re-enstated, add this code back in and set wrapper above
+        //  ----------------------------------------------------------------------
+        // @include breakpoint($screen-xxl) {
+        //   $value      : ($screen-xxl - ($grid-gutter-width * 2));
+        //   &:before {
+        //     width: calc(((100vw - #{$value}) / 2) + 100%);
+        //   }
+        // }
+      }
+    }
+
+    //  Titles
+    //  ----------------------------------------
+    .hero-video-title {
+    }
+
+    //  Subtitles
+    //  ----------------------------------------
+    .hero-video-subtitle {
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 1.2;
+      color: $grey-light;
+    }
+
+    //  Text
+    //  ----------------------------------------
+    .hero-video-text {
+      width: 90%;
+      padding: 15px 15px 15px 0;
+
+      @include breakpoint(screen-small) {
+        padding-right: 30px;
+        padding-left: 0;
+      }
+
+      @include breakpoint(screen-medium) {
+        width: 75%;
+      }
+    }
+  }
+}

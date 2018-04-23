@@ -1,0 +1,63 @@
+#overview, .overview {
+  // margin-bottom: 2rem;
+  //  h2 {
+  //    padding-bottom: 6px;
+  //    padding-top: 4px;
+  //    color: $nxp-deep-orange;
+  //    line-height: 1.3em;
+  //    font-size:2rem;
+  //    font-weight: bold;
+  //  }
+  // ul { @include boxes(); }
+  // .overview-content {margin-bottom:2rem;}
+  .expand-list.collapse:not(.in) {
+    height: 300px!important;
+  }
+  
+  margin-bottom: 2em;
+  @include breakpoint(screen-small) {
+    margin-bottom: .5em;
+  }
+}
+
+  #overviewSectionDiv p:last-child {
+		margin-bottom: 0;
+	}
+
+
+div#overview + .expand-list.collapse:not(.in){
+   height:300px!important;
+   //hack for pos cms
+}
+
+// [#29834] Fix for GForge
+// this adds some space below the intro paragraph
+div#overviewExpand:not(.collapse) {
+  //margin-bottom: 1.5em !important;
+}
+div#featuresExpand.collapse + p#featureSectionMore, div#featuresExpand.collapsing + p#featureSectionMore {
+	display: block;
+	@media (min-width: $vp-large) {
+	display: none;
+	}
+}
+div#overviewExpand.collapse + p#overviewSectionMore,
+div#featuresExpand.collapse + p#featureSectionMore {
+	margin-bottom: 0px;
+	border-top: 1px dashed $grey-light;
+	margin-top: 15px;
+	@media (min-width: $vp-small) {
+		margin-right: calc(100% - 750px * 0.75 + 30px);
+	}
+
+	@media (min-width: $vp-medium) {
+		margin-right: calc(100% - 970px * 0.75 + 30px);
+	}
+
+	@media (min-width: $vp-large) {
+		margin-right: calc(100% - 1170px * 0.75 + 30px);
+	}
+	a.show-hide{
+		padding-bottom: 5px;
+	}
+}

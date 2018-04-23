@@ -1,0 +1,88 @@
+//  ---------------------------------------------------------------------------
+//  Section Lead Component: review padding/margins
+//  ::  Container
+//  ::  Title
+//  ::  Text
+//  ---------------------------------------------------------------------------
+.section-lead {
+  // should set to 800px, may need to adjust if breakpoints change
+  max-width: round($screen-lg * (2 / 3));
+  margin-right: auto;
+  margin-bottom: $padding-component-small-vertical;
+  margin-left: auto;
+
+  &.is-secondary {
+    margin-right: 0;
+    margin-bottom: $padding-component-base-inner;
+    margin-left: 0;
+  }
+
+  // centers title and text at 992px, when components generally display horizontally
+  @include breakpoint($screen-md) {
+    text-align: center;
+
+    &.is-secondary {
+      text-align: left;
+      text-align: initial;
+    }
+
+    &.text-left {
+      // using text-left since it is a common helper class
+      // unfortunately the media query overrides this class, so declared here
+      max-width: 100%;
+      text-align: left; // initial not supported in IE11, fallback
+      text-align: initial; // use intial instead of left for rtl compatibility, I hope.
+    }
+
+    // Remove Bootstrap columns from markup
+    // Putting this in place to avoid any display issues
+    .col-md-10 {
+      width: 100%;
+    }
+
+    .col-md-offset-1 {
+      margin-left: 0;
+    }
+  }
+
+  &-header {
+    display: flex;
+  }
+
+  &-link {
+    // align-self: flex-start;
+    flex-shrink: 0;
+    margin-left: $padding-component-base-inner;
+    padding-top: 5px; // align View All with title (diff font sizes)
+    line-height: 1;
+  }
+
+  // Title Area
+  &-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    // font-size: 1.625em; // 22.75-26px sizing
+  }
+
+  // using :not is easier than overwriting these applied styles
+  &:not(.is-secondary) &-title {
+    // mirror h1 styles, make mixin instead and include here?
+    font-size: 1.953em;
+    font-weight: 700;
+  }
+
+  // Text Area
+  &-text {
+    // only add margin top if title is present (that complexity needed?)
+    .section-lead-title + &,
+    .section-lead-header + & {
+      margin-top: 20px;
+    }
+
+    // p { }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+}

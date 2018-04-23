@@ -1,0 +1,138 @@
+.tabs {
+  display: flex;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 48px;
+  background-color: $cool-grey-xxlight;
+  margin: 0 auto 1em;
+  width: 100%;
+  white-space: nowrap;
+  box-shadow: 0 0 0 0 rgba(0,0,0,0.16),0 2px 4px 0 rgba(0,0,0,0.15);
+  @include breakpoint(screen-medium) {
+    display: block;
+    box-shadow: none;
+    height: auto;
+    background: none;
+    
+  }
+  &:before {
+    @include breakpoint(screen-medium) {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      background-image: -webkit-linear-gradient(#b5b2b1 0%, #b5b2b1 100%);
+      background-image: -o-linear-gradient(#b5b2b1 0%, #b5b2b1 100%);
+      background-image: linear-gradient(#b5b2b1 0%, #b5b2b1 100%);
+    }
+  }
+  li:before {
+    display: none;
+  }
+
+  .tab:last-of-type {
+      border-right: none;
+  }
+  
+  .tab {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    display: block;
+    float: left;
+    text-align: center;
+    line-height: 48px;
+    height: 48px;
+    //padding: 0;
+    padding: 0 1em;
+    margin: 0;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    //letter-spacing: .8px;
+    //width: 15%;
+    min-width: 125px;
+    border-right: 1px solid $warm-grey-xxlight;
+    @include breakpoint(screen-medium) {
+      display: inline-block;
+      width: auto;
+      height: auto;
+      line-height: inherit;
+      min-width: auto;
+      //font-weight: 700;
+      margin-right: 3px;
+      padding: 0;
+      border-right: none;
+    }
+    
+    a {
+      color: $tabs-text-color;
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      transition: color .28s ease;
+      @include breakpoint(screen-medium) {
+        border-top-left-radius: .2em;
+        border-top-right-radius: .2em;
+        white-space: nowrap;
+        outline: 0;
+        padding: .5em .75em .4em;
+        background-color: #F2F2F5;
+        color: $cool-grey-dark;
+        border: 1px solid $cool-grey;
+        height: auto;
+        @include transition(all .25s ease) {}
+      }
+      &:hover {
+        text-decoration: none;
+        @include breakpoint(screen-medium) {
+          background-color: #f9b500;
+          color: $cool-grey-xdark;
+        }
+      }
+      &.active {
+        text-decoration: none;
+        @include breakpoint(screen-medium) {
+          background-color: #fff;
+          color: $nxp-charcoal;
+        }
+        &:before {
+          @include breakpoint(screen-medium) {
+            content: "";
+            display: block;
+            height: 1px;
+            background-color: white;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-right: 1px solid $cool-grey;
+            border-left: 1px solid $cool-grey;
+          }
+        }
+      }
+      
+    }
+
+    &.disabled a {
+      color: lighten($tabs-text-color, 20%);
+      cursor: default;
+    }
+  }
+  .indicator {
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    background-color: $nxp-orange;
+    will-change: left, right;
+    @include breakpoint(screen-medium) {
+      display: none;
+    }
+  }
+}

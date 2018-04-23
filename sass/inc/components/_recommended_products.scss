@@ -1,0 +1,16 @@
+// =========================
+// Component Name: Recommended Products Table
+// Component Type: Table (Dynamic)
+// =========================
+
+.recommendedProducts {
+  .recommendedProducts-category {
+    td,
+    + tr td {
+      border-top: 2px solid $warm-grey-xxlight;
+    }
+	> td[rowspan="2"]{
+		white-space: nowrap;
+	}
+  }
+}

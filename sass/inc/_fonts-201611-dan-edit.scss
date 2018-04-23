@@ -1,0 +1,331 @@
+/* Start _fonts.scss */
+
+//
+// Project: NXP Responsive Design;
+// Description: Basic Font Standardization Recommendations;
+// Author: Paul Capetola;
+// ========================================================
+// --------------------------------------------------------
+// Scales
+// --------------------------------------------------------
+// Mobile
+// h1 - 22
+// h2 - 20
+// h3 - 18
+// h4 - 16
+// h5 - 14
+// ** - 14
+// sm,
+// tb - 12
+// Larger than Mobile
+// h1 - 26
+// h2 - 22
+// h3 - 20
+// h4 - 18
+// h5 - 16
+// ** - 16
+// sm,
+// tb - 14
+// --------------------------------------------------------------
+// #1.0 - Reset root font-size to 10px (easy-to-handle rem values)
+// --------------------------------------------------------------
+html {
+  font-size: 62.5%; // Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+  font-size: 10px; // Corrects text resizing oddly when browsers zoom text only. rem units will call back to this root font-size.
+  height: 100%;
+  overflow-y: scroll; // Keeps page centered in all browsers regardless of content height
+  -webkit-text-size-adjust: 100%; // Prevents iOS text size adjust after orientation change, without disabling user zoom
+  -ms-text-size-adjust: 100%; // Prevents iOS text size adjust after orientation change, without disabling user zoom
+}
+
+// --------------------------------------------------------------
+// #2.0 - Set base body font-size (changes from mobile -> desktop)
+// --------------------------------------------------------------
+body {
+  color: $nxp-body-text; // Set base font color
+  font-family: $font-family-sans-serif; // Set base font-family
+  font-size: $font-size-base; // Set base font-size (mobile-first). This is the global parent for em units.
+  line-height: $line-height-base; // Set base line-height
+}
+
+@media (min-width: $screen-sm) {
+  body {
+    font-size: $font-size-base-plus;
+  } // Increase base font-size larger than mobile.
+}
+
+@media print {
+  body {
+    background: transparent; // Removes any background color from printing
+    color: black; // Sets standard text print color.
+    font-size: 12pt; // Reduce font size (in pts.)
+  }
+}
+
+// --------------------------------------------------------------
+// #3.0 - Heading Font Sizes
+// --------------------------------------------------------------
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  //  margin: 0.75em 0 .25em 0; Paul's changes
+  margin: 1em 0 .5em 0; //updated from Paul's
+  font-family: $headings-font-family;
+  color: $nxp-subheads;
+  text-indent: 0;
+  line-height: 1.2;
+}
+
+h1,
+.h1 {
+  font-size: 2.2rem;
+}
+
+h2,
+.h2 {
+  color: $nxp-deep-orange;
+  font-size: 2rem;
+  font-weight: $headings-font-weight;
+}
+
+h3,
+.h3 {
+  font-size: 1.8rem;
+}
+
+h4,
+.h4 {
+  font-size: 1.6rem;
+  font-weight: $headings-font-weight;
+}
+
+h5,
+.h5 {
+  font-size: 1.4rem;
+  font-weight: $headings-font-weight;
+}
+
+h6,
+.h6 {
+  font-size: 1.2rem;
+  font-weight: $headings-font-weight;
+}
+
+@include breakpoint(screen-small) {
+  h1,
+  .h1 {
+    font-size: 2.6rem;
+  }
+  h2,
+  .h2 {
+    font-size: 2.2rem;
+  }
+  h3,
+  .h3 {
+    font-size: 2rem;
+  }
+  h4,
+  .h4 {
+    font-size: 1.8rem;
+  }
+  h5,
+  .h5 {
+    font-size: 1.6rem;
+  }
+}
+
+// Display sized fonts; used when more emphasis is needed and should be used in high level marketing areas, not in the bulk of pages in the site
+// Using major 3rd ratio of 4:5 starting at ms(5) for the display scale
+// http://www.modularscale.com/?1&em&1.25&sass&text
+[class*='display-'] {
+  line-height: 1.1;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.display-1 {
+  font-size: 2.98em;
+}
+
+.display-2 {
+  font-size: 2.384em;
+}
+
+.display-3 {
+  font-size: 1.9075em;
+}
+
+.display-4 {
+  font-size: 1.526em;
+}
+
+@include breakpoint(screen-large) {
+  .display-1 {
+    font-size: 5.96em;
+  }
+  .display-2 {
+    font-size: 4.768em;
+  }
+  .display-3 {
+    font-size: 3.815em;
+  }
+  .display-4 {
+    font-size: 3.052em;
+  }
+}
+
+@media print {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    color: black;
+  }
+  h1,
+  .h1 {
+    font-size: 20px;
+  }
+  h2,
+  .h2 {
+    font-size: 16pt;
+  }
+  h3,
+  .h3 {
+    font-size: 14pt;
+  }
+  h4,
+  .h4 {
+    font-size: 12pt;
+  }
+  h5,
+  .h5 {
+    font-size: 10pt;
+  }
+  h6,
+  .h6 {
+    font-size: 8pt;
+  }
+}
+
+// --------------------------------------------------------------
+// As a sidenote, I'm not sure how concerned we are with print styles, but this really just covers them at the most basic sense. Also, I know we've already discussed using rem for headers, but the em sizes I show, give some indication as to how I reached my rem values (for desktop.) It also shows the greater control I have for mobile header sizes.
+// --------------------------------------------------------------
+// Typographic Elements
+//-------------------------
+p,
+ul,
+ol,
+pre,
+table,
+blockquote,
+li {
+  margin-top: 0;
+  margin-bottom: .5em;
+}
+
+// Modifiers
+//-------------------------
+//b,
+//strong,
+//em,
+small,
+code {
+  line-height: 1;
+}
+
+sup,
+sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+}
+
+sub {
+  top: 0.4em;
+}
+
+.small,
+small {
+  font-size: 85.714285714%;
+  line-height: 1.25;
+  opacity: .9;
+}
+
+.large,
+large {
+  font-size: 115%;
+}
+
+.xlarge,
+xlarge {
+  font-size: 150%;
+}
+
+.xxlarge,
+xxlarge {
+  font-size: 200%;
+}
+
+.heading,
+.headline {
+  display: block;
+  margin: 1em 0 .5em 0;
+  font-weight: 700;
+}
+
+.intro,
+.lead {
+  font-family: $headings-font-family;
+  font-size: 1.25em;
+  //  line-height: 1.29411764706;
+  //  margin-bottom: 1.2em;
+  //  margin-top: .5em;
+}
+
+// Anchors
+//-------------------------
+a {
+  color: $link-color;
+  text-decoration: none;
+  background-color: initial;
+}
+
+a:visited {
+  color: $link-visited-color;
+}
+
+a:hover,
+a:focus {
+  color: $link-hover-color;
+  text-decoration: underline;
+  background-color: initial;
+  cursor: pointer;
+}
+
+a:focus {
+  text-decoration: none;
+}
+
+a:active {
+  color: $link-color;
+}
+
+
+/* End _fonts.scss */

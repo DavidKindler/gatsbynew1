@@ -1,0 +1,47 @@
+//  ---------------------------------------------------------------------------
+//  Main grouped-links Component
+//  ::  Minimal Styling needed, placing structure for future changes
+//  ---------------------------------------------------------------------------
+
+.grouped-links {
+  padding-top: $padding-component-vertical;
+  // removes 1em = margin bottom on the ul for better vertial alignment
+  padding-bottom: ($padding-component-vertical - 1em);
+
+  // list container
+  &-container { }
+
+  &-column {
+    margin-bottom: 1em;
+
+    @include breakpoint(screen-medium) {
+      margin-bottom: 0;
+    }
+  }
+
+  &-image {
+    img,
+    svg {
+      margin-bottom: .5em;
+    }
+  }
+
+  &-title {
+    margin-top: 0;
+  }
+
+  &-text {
+    margin-bottom: .5em;
+  }
+
+  &-list {
+
+    > li {
+      &:last-of-type {
+        margin-bottom: 0; // removes margin from li since it is on ul also
+      }
+
+      > a { }
+    }
+  }
+}

@@ -1,0 +1,135 @@
+//  ---------------------------------------------------------------------------
+//  Key Topic Cards
+//  ::  Main Container
+//  ::  List
+//  ::  Item
+//  ::  - Number Variations
+//  ::  Images
+//  ::  Content
+//  ::  Links
+//  ---------------------------------------------------------------------------
+
+.key-topic {
+  // setting key-topic-card margin bottom in variable here
+  // variable is used to subtract bottom margin from overall component padding
+  $key-topic-margin: 2em;
+  padding: $padding-component-vertical 0 ($padding-component-vertical - $key-topic-margin);
+
+  // list wrapper, holds items
+  &-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    &.one {
+      justify-content: center;
+    }
+  }
+
+  // Key Topic Articles
+  &-item {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+    margin-bottom: $key-topic-margin;
+
+    @include breakpoint(screen-small) {
+      //  IE11 has problem with calc() in flex shorthand
+      //  :: Set flex properties individually
+      // defaul setting is 2 column layout
+      flex-grow: 0;
+      flex-basis: calc(50% - 1em);
+      width: calc(50% - 1em); // set width for IE Edge
+    }
+
+    //  Number Variations
+    //  -----------------------------------
+    //  Single Item
+    .one & {
+      // should be 50% by default and centered
+    }
+
+    //  Two Items settings
+    .two & {
+      // not needed since default
+    }
+
+    // Three items settings
+    .three & {
+      @include breakpoint(screen-medium) {
+        flex-basis: calc(33.3333% - 1em);
+        width: calc(33.3333% - 1em); // set width for IE Edge
+      }
+    }
+
+    // Four Item Settings
+    .four & {
+      @include breakpoint(screen-small) { }
+
+      @include breakpoint(screen-large) {
+        flex-basis: calc(25% - 1em);
+        width: calc(25% - 1em); // set width for IE Edge
+      }
+    }
+  }
+
+
+  //  Image
+  //  -----------------------------------
+  &-img {
+    @include responsive-image(35%);
+
+    img { }
+    svg { } // use case for this?
+  }
+
+  //  Content Section
+  //  -----------------------------------
+  &-content { }
+
+  &-title {
+    margin-bottom: .25em;
+    font-size: 1.15em; // size as h3, for older h2 markup (remove when not needed)
+  }
+
+  &-subtitle {
+    margin: 0;
+  }
+
+  &-description {
+    margin-bottom: .5em;
+
+    p { }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  //  Links
+  //  -----------------------------------
+  &-links {
+   @include nobullets();
+    margin-bottom: 0;
+
+    li {
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    a { @include cta; }
+
+    // Add has-columns class to key-topic-list to break links into two columns
+    // when space allows.
+    // Added -item specificity so has-columns couldn't go on -item
+    // - if has-columns is used, it apply to every -item
+    .has-columns .key-topic-item & {
+      @include columns(2, 1em, 140px, 'li'); // count|gap|width|child
+
+      li {
+        a { }
+      }
+    }
+  }
+}

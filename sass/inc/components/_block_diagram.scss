@@ -1,0 +1,73 @@
+//  ---------------------------------------------------------------------------
+//  ASP Block Diagram - move to own include file after initial dev
+//  ::  Container
+//  ::  Title
+//  ::  Image
+//  ::  Link Hotspots
+//  ::  Popovers
+//  ---------------------------------------------------------------------------
+
+.asp-diagram {
+//  padding: 2em 0;
+
+  &-title { }
+
+  &-text { }
+
+  &-image {
+    position: relative;
+
+    img { }
+  }
+
+  &-hotspots {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    > a {
+      position: absolute;
+      display: none;
+      box-shadow: 0 0 5px $deep-blue;
+      transition: all 150ms ease;
+
+      @include breakpoint(screen-medium) {
+        display: block;
+      }
+
+      &:hover {
+        background: rgba($white, .25);
+        box-shadow: 0 0 8px $deep-blue;
+      }
+    }
+  }
+
+  // Bootstrap Popover Styles
+  .popover {
+    width: 100%;
+    max-width: 315px; // set by Bootstrap, can override here if needed
+
+    // Title Area
+    &-title { }
+
+    &-close {
+      float: right;
+      margin-left: .5em;
+
+      .icon-close { }
+    }
+
+    //  Content Area
+    &-content {
+      max-height: 24em;
+      overflow-y: auto;
+    }
+
+    &-product-list { }
+  }
+}
+
+
+// CSS positioning placed in HTML head

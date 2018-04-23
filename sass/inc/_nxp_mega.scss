@@ -1,0 +1,65 @@
+//
+ // * MegaMenu based on YAMM v3
+ // *
+ // * http://geedmo.github.com/yamm3
+ //
+
+$megamenu-css-classname: megamenu;
+$mega-link-color: #656565;
+$mega-border-color: #efefef;
+
+
+.#{$megamenu-css-classname} {
+
+  // reset positions
+  .nav, .collapse, .dropup, .dropdown {
+    position: static;
+  }
+
+  // propagate menu position under container for fw navbars
+  .container {
+    position: relative;
+    display:block;
+
+    @media (max-width: $screen-tablet - 1px) {
+      display:none;
+    }
+  }
+  // by default aligns menu to left
+  .dropdown-menu {
+    left: auto;
+  }
+  // ensure a good position
+  .nav.navbar-right .dropdown-menu {
+    left: auto;
+    right: 0;
+  }
+
+  // Content with padding
+  .#{$megamenu-css-classname}-content {
+    padding: 20px 30px;
+  }
+
+  // Fullwidth menu
+  .dropdown.#{$megamenu-css-classname}-fw .dropdown-menu {
+    left: 0; right: 0;
+  }
+
+  // Halfwidth menu
+  .dropdown.#{$megamenu-css-classname}-hw .dropdown-menu {
+    width:50%;
+  }
+
+
+}  // megamenu
+
+// ====================================
+// Additional Modifications
+// ====================================
+
+// Force the nested rows of the Applications Menu to stay
+// nicely aligned and not break the bounds of the container
+// dropdown
+.applicationsmenu .row {
+  margin: 0;
+}

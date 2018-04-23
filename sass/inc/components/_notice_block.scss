@@ -1,0 +1,14 @@
+.notice-block, .notice-block-info {
+	border:2px solid $cool-grey;
+	padding: 15px 20px;
+	margin-bottom:20px;
+}
+
+.notice-block-warning {
+	border:2px solid $nxp-apple-red;
+	padding:15px 20px;
+	margin-bottom:20px;
+	color:$nxp-apple-red!important;
+ 
+ & > * { color:$nxp-apple-red!important; }
+}

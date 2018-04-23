@@ -1,0 +1,346 @@
+// =========================
+// Component Name: Features
+// Component Type: Accordian (Collapse)
+// =========================
+.featuresAccordion, .featuresAccordionB, .accordion {
+  // background-color: #b8bfbf;
+  background-color: $warm-grey-xxlight;
+
+  border-top:1px solid $cool-grey;
+  border-bottom:1px solid $cool-grey;
+
+  &.ui-accordion {
+    .ui-accordion-content-active {background: $white!important;}
+    .ui-accordion-header a {display: block !important;   font-size: 1em !important;  padding: .5em .5em .5em 1.45em !important; color: $nxp-body-text!important;  line-height: 22px;}
+    .ui-accordion-header a:hover {background: $white!important; text-decoration: none;}
+  }
+
+  .panel {
+    border-radius: 0;
+    margin-top: 1px;
+    border: none;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+  }
+  &.panel-group .panel+.panel {margin-top:1px;}
+
+  h3 {
+    margin: 0;
+  }
+
+  a[role="button"] {
+    background-color: #fff;
+    position: relative;
+
+    &:before {
+      font-family: "icomoon";
+      speak: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      position: absolute;
+      top: calc(50% - .5em - 1px);
+      left: 0;
+
+      content: "\e3b5";
+      color: $cool-grey-xdark;
+
+      -webkit-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+              transform: rotate(90deg);
+
+      transition: all .25s ease-in;
+    }
+
+    &.collapsed {
+      background-color: $cool-grey-xxxlight;
+
+      &:before {
+        -webkit-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+                transform: rotate(0deg);
+        transition: all .25s ease-in;
+        color: $cool-grey;
+      }
+    }
+  } // end #featuresAccordian a
+} // end #featuresAccordian
+
+
+.panel.unstyled {
+  margin-bottom: auto;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.panel-collapse > ul {
+  margin: 0 ($line-height-computed / 2);
+
+  > li:last-child {
+    margin-bottom: 0;
+    padding-bottom: ($line-height-computed / 2);
+  }
+}
+.panel-collapse > p {
+  margin: 0 ($line-height-computed / 2);
+}
+
+// Mobile Styles
+.mobileOnly {
+
+  .featuresAccordion .panel:last-child, 
+  .featuresAccordionB .panel:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .mobile-accordion-head {
+    margin-bottom: 0;
+
+    a {
+      display: block;
+      text-align: left;
+
+      border: 1px solid #979799;
+      border-radius: 5px;
+      padding: .625em;
+      padding-right: 35px;
+
+      background-color: #ededf0;
+      color: #646464;
+      font-weight: normal;
+      position: relative;
+
+      &:before {
+        content: none !important;
+      }
+
+      &:after {
+        font-family: "icomoon";
+        content: "\e3b2";
+        speak: none;
+        line-height: 1;
+        font-size: 2rem;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        padding-right: 14px;
+        padding-top: 2px;
+        padding-bottom: 4px;
+        transition: all .35s ease-in;
+
+        // Original version style overrides
+        background: none;
+        height: auto;
+        width: auto;
+        left: initial;
+        bottom: initial;
+      }
+
+      &.no-arrow:after {
+        content: none;
+      }
+
+      &:hover, &:not(.collapsed) {
+        text-decoration: none;
+        background-color: #fff;
+      }
+
+      &:focus {
+        text-decoration: none;
+      }
+
+      &:not(.collapsed) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        &:after {
+          -webkit-transform: rotateX(180deg);
+             -moz-transform: rotateX(180deg);
+              -ms-transform: rotateX(180deg);
+                  transform: rotateX(180deg);
+
+          transition: all .35s ease-in;
+        }
+      }
+    }
+  }
+
+  .mobile-accordion {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid #979799;
+    border-top: none;
+
+    .panel:last-child, .panel:last-child a, .panel:last-child .panel-collapse {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    &.table-accordion {
+      border-radius: 0;
+    }
+
+  }
+
+  .expand-list ul {
+    padding-top: 15px;
+  }
+
+}
+
+.mobile-accordion table { 
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; 
+}
+
+#communityDiscussion.accordion { 
+  padding: 1em;
+
+  ul {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+
+// ##############################
+// Features as List Custom Styles
+// ##############################
+.expand-list {
+
+  + .ui-accordion-header {
+    
+    a:after {
+      font-family: "icomoon";
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      // font-size: 1.5em;
+      // position: absolute;
+      // top: 10px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: inline-block;
+
+      content: "\e3b6";
+      -webkit-transform: rotate(-180deg);
+          -ms-transform: rotate(-180deg);
+              transform: rotate(-180deg);
+      @include transition(all .25s ease);
+    }
+
+    span.more {
+      display: none;
+    }
+    span.less {
+      display: inline-block;
+        @include breakpoint(screen-smallest-and-less) {
+          font-size: 115%;
+        }
+    }
+  }
+
+  &.collapse:not(.in) {
+    display: inline-block;
+    height: 500px !important;
+    overflow: hidden;
+    position: relative;
+    
+    @media screen and (max-width: $screen-sm) {
+        height: 200px !important;
+    }
+
+    &:after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 50px;
+      background: linear-gradient(rgba(255,255,255,0), #fff);  // Safari keyword 'transparent' fix
+    }
+
+    + .ui-accordion-header {
+
+      a:after {
+        -webkit-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+                transform: rotate(0deg);
+        @include transition(all .25s ease);
+      }
+
+      span.more {
+        display: inline-block;
+        @include breakpoint(screen-smallest-and-less) {
+          font-size: 115%;
+        }
+      }
+      span.less {
+        display: none;
+      }
+    }
+
+  }
+}
+
+// // Global collapse styling
+// a[data-toggle="collapse"]:not(.btn) {
+//   padding: 15px;
+//   padding-right: 35px;
+//   margin: -15px;
+//   position: relative;
+// }
+
+
+// Add Caret to any collapse you need
+a.caret-after:after {
+  font-family: "icomoon";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  // font-size: 1.5em;
+  // position: absolute;
+  // top: 10px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+
+  content: "\e3b6";
+  -webkit-transform: rotate(-180deg);
+      -ms-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  @include transition(all .25s ease);
+}
+
+a.caret-after.collapsed:after {
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+  @include transition(all .25s ease);
+}
+
+
+// Separated to assist with delay issue
+.expand-list.collapsing {
+  min-height: 500px !important;
+
+  @media screen and (max-width: $screen-sm) {
+    min-height: 200px !important;
+  }
+}
+

@@ -1,0 +1,600 @@
+// ---------------------------------------------------------------------------
+/* Basecamp Docs: styles for branding.nxp/qualcomm */
+/* Do not edit the .css file, edits go in the qc-sass/basecamp-docs.scss file */
+// ---------------------------------------------------------------------------
+
+// Core variables and mixins
+// @import 'inc/nxp_functions';
+@import 'inc/nxp_colors';
+@import 'inc/nxp_variables';
+// @import 'inc/bootstrap/mixins';
+@import 'inc/nxp_mixins';
+@import 'inc/mixins_b57029';
+
+// Component Styles
+// @import 'basecamp/navbar';
+
+//
+// ----------------------------------------
+//
+.fsl-container {
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+
+.back-to-top {
+  padding: 4px 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: $font-size-small;
+  font-weight: $font-weight-base;
+  color: $text-color;
+}
+
+// BS Callout Blocks
+// ----------------------------------------
+.bs-callout {
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid $border-color-base;
+  border-left-width: 5px;
+  border-radius: $border-radius-base;
+
+  h4 {
+  }
+
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  code {
+    border-radius: $border-radius-base;
+  }
+
+  // reduce space between stacked callout sections
+  & + & {
+    margin-top: -5px;
+  }
+
+  // Color Variations
+  // ----------------------------------------
+  &-danger {
+    border-color: $brand-danger;
+
+    h4 {
+      color: $brand-danger;
+    }
+  }
+
+  &-warning {
+    border-color: $brand-warning;
+
+    h4 {
+      color: $brand-warning;
+    }
+  }
+
+  &-info {
+    border-color: $brand-info;
+
+    h4 {
+      color: $brand-info;
+    }
+  }
+}
+
+// Anchor Page Links
+// ----------------------------------------
+.anchor {
+  position: relative;
+  display: block;
+  width: 1px;
+  height: 60px;
+  margin-top: -60px;
+}
+
+// FSL Docs Header, dont thik this is being used
+// ----------------------------------------
+.fsl-docs-header {
+  position: relative;
+  overflow: hidden;
+  padding: 0px;
+  color: linen;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba($absolute-black, 0.1);
+
+  @include breakpoint($screen-sm) {
+    height: 300px;
+  }
+
+  @include breakpoint($screen-md) {
+    height: 350px;
+  }
+
+  .row {
+    position: absolute;
+    top: 0;
+    padding-left: 20px;
+  }
+
+  #draftmode h2 {
+    padding-top: 100px;
+    color: red;
+    font-size: 70px;
+    transform: rotate(-30deg);
+  }
+
+  h1 {
+    font-size: 30px;
+    color: linen;
+
+    @include breakpoint($screen-sm) {
+      font-size: 50px;
+    }
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+// FSL Docs Nav: not sure if this is being used
+// ----------------------------------------
+.fsl-docs-nav {
+  margin-bottom: 0;
+  background-color: #ff4f00;
+  border-bottom: 0px;
+}
+
+.fsl-docs-nav .navbar-brand,
+.fsl-docs-nav .navbar-nav > li > a {
+  color: $white;
+  font-weight: $font-weight-base;
+}
+
+.fsl-docs-nav .navbar-nav > li > a:hover,
+.fsl-docs-nav .navbar-nav > .active > a,
+.fsl-docs-nav .navbar-nav > .active > a:hover {
+  color: $white;
+  background-color: #ff8f5d;
+}
+
+.fsl-docs-nav .navbar-toggle .icon-bar {
+  background-color: $white;
+}
+
+.fsl-docs-nav .navbar-header .navbar-toggle {
+  border-color: $white;
+}
+
+.fsl-docs-nav .navbar-header .navbar-toggle:hover,
+.fsl-docs-nav .navbar-header .navbar-toggle:focus {
+  background-color: #ff4f00;
+  border-color: $white;
+}
+
+// Icon styles
+// ----------------------------------------
+// #iconList,
+// #parametric-icons {
+//   font-size: 20px;
+// }
+
+.iconInfo {
+  font-size: 20px;
+
+  &:hover {
+    color: $headings-color;
+  }
+
+  > span:first-of-type {
+    width: 15%;
+    max-width: 40px;
+    text-align: center;
+  }
+
+  .display-icon-name {
+    font-size: $font-size-small;
+    margin-left: $grid-gutter-width-half;
+  }
+}
+
+// FSL Docs Sidebar
+// ----------------------------------------
+.fsl-docs-sidebar {
+  display: block;
+  margin-top: 20px;
+
+  &.affix {
+    top: 0;
+    margin-top: 70px;
+    margin-bottom: 20px;
+  }
+
+  &.affix-bottom {
+    bottom: 10px;
+  }
+
+  @include breakpoint-max($screen-md) {
+    display: none;
+  }
+
+  .nav {
+    li {
+      margin-bottom: 0px;
+    }
+
+    // indent list items in nested lists
+    .nav {
+      li {
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
+.fsl-docs-sidebar .nav {
+  > li {
+    > a {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #999;
+      padding: 2px 20px;
+
+      &:hover,
+      &:focus {
+        padding-left: 19px;
+        color: $link-color;
+        text-decoration: none;
+        background-color: transparent;
+        border-left: 1px solid $link-color;
+      }
+    }
+
+    &.active,
+    &.active:hover,
+    &.active:focus {
+      > a {
+        padding-left: 18px;
+        font-weight: $font-weight-heavy;
+        color: $link-hover-color;
+        background-color: transparent;
+        border-left: 2px solid $brand-primary;
+      }
+    }
+  }
+
+  // hide nested lists
+  .nav {
+    display: none;
+  }
+
+  // reveal nested lists when active
+  > .active > .nav {
+    display: block;
+  }
+}
+
+// Helper Classes
+// ----------------------------------------
+.is-hidden {
+  color: #ccc;
+  background-color: #f9f9f9 !important;
+}
+
+.is-visible {
+  color: #468847;
+  background-color: #dff0d8 !important;
+}
+
+.show-grid.row {
+  margin-bottom: 10px;
+}
+
+// .show-grid [class*='col-'] {
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+//   color: $qc-color2-dark;
+//   background-color: rgba($qc-color2, 0.15);
+//   border: 1px solid $qc-color2-dark;
+// }
+
+// Type
+// ----------------------------------------
+.page-header {
+  font-weight: $font-weight-heavy;
+}
+
+// Container and sidebar NXP styles
+// ----------------------------------------
+.nxp-doc-container {
+  padding-top: 60px;
+
+  .col-md-9 {
+    width: 100%;
+    padding-left: $grid-gutter-width-half;
+    padding-right: $grid-gutter-width-half;
+
+    @include breakpoint($screen-sm) {
+      width: calc(100% - #{$left-column-small});
+      margin-left: $left-column-small;
+    }
+
+    @include breakpoint($screen-md) {
+      width: ($screen-md - $left-column-medium);
+      margin-left: calc(#{$left-column-medium} + (100vw - #{$screen-md}) / 2);
+    }
+
+    @include breakpoint($screen-lg) {
+      width: ($screen-lg - $left-column-large);
+      margin-left: calc(#{$left-column-large} + (100vw - #{$screen-lg}) / 2);
+    }
+
+    @include breakpoint($screen-xl) {
+      width: ($screen-xl - $left-column-xlarge);
+      margin-left: calc(#{$left-column-xlarge} + (100vw - #{$screen-xl}) / 2);
+    }
+  }
+}
+
+// left nav on Components page
+.nxp-docs-sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0px;
+  display: block;
+  width: $left-column-small;
+  height: 93%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: $grid-gutter-width-half $grid-gutter-width-half $grid-gutter-width
+    $grid-gutter-width-half;
+  // font-size: $font-size-small;
+  border-right: 1px solid $border-color-base;
+
+  @include breakpoint-max($screen-sm) {
+    display: none;
+  }
+
+  @include breakpoint($screen-md) {
+    width: $left-column-medium;
+  }
+
+  @include breakpoint($screen-lg) {
+    width: $left-column-large;
+  }
+
+  .nav {
+    li {
+      margin-bottom: 0;
+
+      a {
+        padding: 5px;
+
+        &:hover {
+          background-color: $cool-grey-xxxlight;
+        }
+      }
+    }
+  }
+}
+
+*[id].page-header:target:before {
+  content: ' ';
+  display: block;
+  height: 80px;
+  margin: 0;
+  visibility: hidden;
+}
+
+// Example continer
+.bc-example {
+  position: relative;
+  padding: 45px 15px 15px;
+  margin-bottom: 0;
+  background-color: $white;
+  border: 1px solid $border-color-base;
+  border-radius: $border-radius-base;
+
+  &:after {
+    content: 'Example';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: $font-size-xsmall;
+    font-weight: $font-weight-heavy;
+    color: $cool-grey-dark;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  > p > .close {
+    float: none;
+  }
+}
+
+// Syntax Highlighter
+.syntaxhighlighter {
+  @include breakpoint-max($screen-xs) {
+    display: none;
+  }
+
+  .bc-example + .highlight & {
+    margin-top: 0 !important;
+    border-radius: 0 0 $border-radius-base $border-radius-base;
+  }
+
+  .line {
+    white-space: pre-wrap !important;
+  }
+}
+
+// Color Palette Styles
+// ----------------------------------------
+//
+// duplicating bg-variant mixin and declarations here
+// don't want to introduce font-coloring in main stylesheet yet, but need for branding example
+
+// @mixin bg-variant($parent, $color, $text-color: true) {
+//   #{$parent} {
+//     @if $text-color == true {
+//       color: ensureTextContrast($qc-text-light, $color);
+//     }
+//     background-color: $color !important;
+//   }
+// }
+// Primary color - Aqua
+// @include bg-variant('.bg-qc-color1', $qc-color1);
+// @include bg-variant('.bg-qc-color1-light', $qc-color1-light);
+// @include bg-variant('.bg-qc-color1-dark', $qc-color1-dark);
+// // Blue
+// @include bg-variant('.bg-qc-color2', $qc-color2);
+// @include bg-variant('.bg-qc-color2-light', $qc-color2-light);
+// @include bg-variant('.bg-qc-color2-dark', $qc-color2-dark);
+// @include bg-variant('.bg-qc-color2-accent', $qc-color2-accent);
+// // Orange
+// @include bg-variant('.bg-qc-color3', $qc-color3);
+// @include bg-variant('.bg-qc-color3-light', $qc-color3-light);
+// @include bg-variant('.bg-qc-color3-dark', $qc-color3-dark);
+// @include bg-variant('.bg-qc-color3-accent', $qc-color3-accent);
+// // Red
+// @include bg-variant('.bg-qc-color4', $qc-color4);
+// @include bg-variant('.bg-qc-color4-light', $qc-color4-light);
+// @include bg-variant('.bg-qc-color4-dark', $qc-color4-dark);
+// // Violet
+// @include bg-variant('.bg-qc-color5', $qc-color5);
+// @include bg-variant('.bg-qc-color5-light', $qc-color5-light);
+// @include bg-variant('.bg-qc-color5-dark', $qc-color5-dark);
+// // Grayscale
+// @include bg-variant('.bg-qc-text-header', $qc-text-header);
+// @include bg-variant('.bg-qc-text-headline', $qc-text-headline);
+// @include bg-variant('.bg-qc-text-copy', $qc-text-copy);
+// @include bg-variant('.bg-qc-module-dark', $qc-module-dark);
+// @include bg-variant('.bg-qc-module-light-cool', $qc-module-light-cool);
+// @include bg-variant('.bg-qc-module-light', $qc-module-light);
+// @include bg-variant('.bg-qc-module-menu', $qc-module-menu);
+// @include bg-variant('.bg-qc-border-base', $qc-border-base);
+// @include bg-variant('.bg-qc-border-divider', $qc-border-divider);
+// @include bg-variant('.bg-qc-border-divider-cool', $qc-border-divider-cool);
+
+.color-group {
+  margin-bottom: 20px;
+
+  &.columns {
+    column-gap: 30px;
+  }
+
+  .color {
+    padding: 10px;
+    border: 1px solid rgba($absolute-black, 0.1);
+  }
+}
+
+.color-info {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 0;
+
+  .class {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 100%;
+    margin-bottom: 0;
+    font-size: 20px;
+  }
+
+  .rgb {
+    text-align: right;
+  }
+}
+
+// General Component styles on components page
+// --------------------------------------------
+
+.component {
+  position: relative;
+  padding: 10px;
+  margin-bottom: $padding-component-small-vertical;
+
+  &:nth-child(even) {
+    background-color: $cool-grey-xxxlight;
+  }
+}
+
+.-label {
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid $border-color-base;
+  margin-bottom: 1em;
+  padding-bottom: 5px;
+
+  h2 {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+}
+
+.-button {
+  float: right;
+  margin-left: auto;
+
+  & + & {
+    margin-left: 0.5em;
+  }
+}
+
+.color-thumbnail {
+  display: inline-block;
+  vertical-align: bottom;
+  flex-shrink: 0;
+  width: 28px;
+  margin-right: 5px;
+  font-size: 16px;
+  color: $white;
+  text-align: center;
+  line-height: 28px;
+  border-radius: 50%;
+
+  &.it {
+    background-color: $petrol-blue;
+
+    &.disabled {
+      background-color: $cool-grey-dark !important;
+    }
+  }
+
+  &.wp {
+    background-color: $deep-orange;
+
+    &.disabled {
+      background-color: $cool-grey-dark !important;
+    }
+  }
+
+  &.big {
+    width: 45px;
+    height: 45px;
+    font-size: $font-size-large;
+    line-height: 45px;
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+// Component Specific Styles
+// --------------------------------------------
+.nav-tabs::before {
+  width: 100%;
+}

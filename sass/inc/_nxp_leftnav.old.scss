@@ -1,0 +1,172 @@
+//  #leftnav
+ .leftnav {
+   font-size: 12px;
+   line-height: normal;
+   width: 100%;
+   h2 {
+     color: $nxp-petrol-blue;
+     font-size: 1.3em;
+     margin: 0px;
+     text-transform: uppercase;
+   }
+   li {
+     margin-bottom: 0;
+     padding-left: 0;
+     &:before {
+       content: none;
+     }
+   }
+ }
+
+ .leftnav {
+   margin-left: 0;
+   margin-right: 15px;
+   padding: 20px 0 0;
+
+   &.affix {
+     top: 10px;
+     width: 217px;
+   }
+	& > li:first-of-type {
+		& > a {			
+			border-top: 1px solid $nxp-gray-ixlight;
+		}
+	}
+	& > li:last-of-type {
+		& > a {
+			border-bottom: 1px solid $nxp-gray-ixlight;
+		}
+	}
+   & > li {
+     border-collapse: collapse;
+     background-color: $cool-grey-xxxlight;
+     border-top: 1px solid $nxp-gray-ixlight;
+     list-style-image: none;
+     & > a {
+       color: $cool-grey-xxxdark;
+       text-decoration: none;
+       display: block;
+       padding: 9px 5px 9px 30px;
+       &:hover {
+         background-color: $nxp-gray-xlight;
+         text-decoration: none;
+         color: $cool-grey-xxxdark;
+       }
+     }
+     &.selected {
+       background-color: $nxp-gray-xdark;
+       text-decoration: none;
+       & a {
+         color: $nxp-white;
+		   &:hover {
+			 color: $cool-grey-xxxdark;
+			 background-color: $nxp-gray-xlight;
+		   }
+       }
+       & ul {	   
+		 background-color: white;
+         padding: 0px 0px;
+         & li {
+           color: $cool-grey-xxxdark;
+           text-decoration: none;
+           border-top: 1px solid $nxp-gray-ixlight;
+           list-style-image: none;
+           & a {
+             color: $cool-grey-xxxdark;
+             text-decoration: none; 
+			 &:hover {
+               color: $cool-grey-xxxdark;
+			   background-color: $nxp-gray-x3light;
+			}
+           }
+          
+         }
+       }
+     }
+   }
+   & ul {
+     margin: 0 0;
+     //background-color: white;
+     padding: 0px;
+     & li {
+       border-top: 1px solid $nxp-gray-ixlight;
+       list-style-image: none;
+       & a {
+         color: $cool-grey-xxxdark;
+         text-decoration: none;
+         display: block;
+         padding: 9px 5px 9px 37px;
+         &:hover {
+           background-color: $nxp-gray-xlight;
+           color: $cool-grey-xxxdark;
+         }
+       }
+       &.selected {
+         & > a {
+           background-color: $nxp-gray-xdark;
+           color: $nxp-white;
+         }
+		 & ul {		 
+			background-color: white;
+			& li {
+			
+				& a {
+					&:hover {					
+						background-color: $nxp-gray-x3light;
+					}
+				}
+			}
+		 }
+	   
+       }
+     }
+     & ul {
+       & li {
+         list-style-image: none;
+         & a {
+           color: $cool-grey-xxxdark;
+           text-decoration: none;
+           padding: 9px 5px 9px 42px;
+           font-size: 12px;
+         }
+       }
+       & ul {
+         border-top: 1px solid $nxp-gray-ixlight;
+         & li {
+           list-style-image: none;
+           & a {
+             color: $cool-grey-xxxdark;
+             text-decoration: none;
+             padding-left: 49px;
+             font-size: 12px;
+           }
+         }
+       }
+       & ul li {
+         & a {
+           color: $cool-grey-xxxdark;
+           text-decoration: none;
+           padding-left: 49px;
+           font-size: 12px;
+         }
+         & ul li {
+           & a {
+             padding-left: 56px;
+           }
+           & ul li {
+             & a {
+               padding-left: 63px;
+             }
+           }
+         }
+       }
+     }
+   }
+   a {
+     @include transition(all .25s ease);
+	 min-height: 33px;
+     span {
+       @include transition(all .25s ease);
+     }
+   }
+ }

@@ -1,0 +1,193 @@
+// Media Query Breakpoints
+// ----------------------------------------------
+// Extra small screen / phone
+$screen-xs:                  480px;
+
+// Small screen / tablet
+$screen-sm:                  768px;
+
+// Medium screen / desktop
+$screen-md:                  992px;
+
+// Large screen / wide desktop
+$screen-lg:                  1200px;
+
+$cool-grey-xxxlight:		    #f4f4f5;
+
+@import "inc/_mixins_b57029";
+
+//  copying Bootstrap classes in order to %extend for container-fluid
+//  ---------------------------------------------------------------------------
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+//  Making container-fluids just like container
+.iw_viewport-wrapper .container-fluid {
+  @extend .container;
+  //  assumes header is always first & footer is always last container-fluid
+  &:first-of-type, &:last-of-type {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  //Breadcrumb
+  &:nth-of-type(2) {
+    width: 100%;
+  }
+  &:nth-of-type(2) .col-lg-12{
+    width: 100%;  // not sure if this is needed anymore since we have rule on parent container.
+    // width: 100% !important;
+	// padding: 0px;  // Adding a negative margin in bc-container so that it works on all platforms
+  }
+  //Left Nav and Main Content
+  &:nth-of-type(3) {
+	overflow: hidden;
+	padding-bottom: 80px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .iw_viewport-wrapper .container-fluid header {
+      padding-right: 30px;
+    }
+}
+//  Column Styling to mimick Bootstrap Responsiveness
+.iw_viewport-wrapper > .container-fluid .iw_columns {
+// .iw_viewport-wrapper > .container-fluid > .iw_row > .iw_columns {
+  //  Mixin for setting column float & widths
+  $columns: 12;
+  @mixin col-lg-x {
+    @include breakpoint(screen-small) {
+      @for $i from 1 through $columns {
+        &.col-lg-#{$i} {
+          float: left;
+//          width: calc((#{$i}/12) * 100%);
+        }
+      }
+    }
+  }
+  @include col-lg-x;
+
+/*
+  //  Setting Standard Layout of col-3 / col-9 for wider Left Column
+  &.col-lg-3 {
+    //  hidden on mobile
+    display: none;
+	padding-left: 0px;
+	padding-right: 0px;
+	background-color: $cool-grey-xxxlight;
+	margin-bottom: -99999px;
+	padding-bottom: 99999px;
+    //  sets base with on tablet sizes
+    @include breakpoint(screen-small) {
+      display: block;
+      float: left;
+      width: 250px;
+    }
+    //  increases size at max-width (lg)
+    @include breakpoint(screen-large) {
+      width: 300px;
+    }
+  }
+*/
+/*
+  &.col-lg-9 {
+    //  full width minus left colum size
+    @include breakpoint(screen-small) {
+      float: left;
+      width: calc(760px - 250px);
+      margin-left: calc((100% - 760px) / 2);
+    }
+    //  full width minus left colum size
+    @include breakpoint(screen-medium) {
+      float: left;
+      width: calc(980px - 250px);
+      margin-left: calc((100% - 980px) / 2);
+    }
+    //  full width minus left colum size
+    @include breakpoint(screen-large) {
+      width: calc(1180px - 300px);
+      margin-left: calc((100% - 1180px) / 2);
+    }
+  }
+*/
+  // New Fixed witdth styles (simplified)
+  &.col-lg-3 {
+    display: none;
+    padding: 0;
+    @include breakpoint(screen-small) {
+      display: block;
+      width: 250px;
+    }
+    @include breakpoint(screen-medium) {
+      width: 300px;
+    }
+  }
+  &.col-lg-9 {
+    width: 100%;
+    padding: 0;
+    
+    @include breakpoint(screen-small) {
+      width: calc(100% - 250px);
+    }
+    @include breakpoint(screen-medium) {
+      width: calc(100% - 300px);
+    }
+  }
+
+  &.col-lg-12 {
+	float: none;
+	margin: 0 auto;
+     //  full width minus left colum size
+    @include breakpoint(screen-small) {
+      width: 750px;
+    }
+    @include breakpoint(screen-medium) {
+      width: 970px;
+    }
+    @include breakpoint(screen-large) {
+      width: 1170px;
+    }
+  }
+
+//@media (min-width: 768px) width: 750px;
+//@media (min-width: 992px) width: 970px;
+//@media (min-width: 1200px) width: 1170px;
+
+
+  //  Right column sub-columns styling
+  //  only moves breakpoint from LG to MD
+  @mixin col-md-x {
+    @include breakpoint(screen-medium) {
+      @for $i from 1 through $columns {
+        &.col-lg-#{$i} {
+          float: left;
+//          width: calc((#{$i}/12) * 100%);
+        }
+      }
+    }
+  }
+
+  .iw_columns {
+    @include col-md-x;
+  } // end nested .iw_columns
+} //  end iw_columns

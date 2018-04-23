@@ -1,0 +1,26 @@
+//  ---------------------------------------------------------------------------
+//  Supplemental Links
+//  ---------------------------------------------------------------------------
+
+
+.supplemental-links {
+  padding: $padding-component-vertical 0;
+
+  &-list {
+    @include columns(3, 1em, 220px, 'li'); // columns|gap|width|child
+
+    &.two {
+      column-count: 2; // needed?
+    }
+
+    &.three {
+      // default styles
+    }
+
+    &.four {
+      column-count: 4;
+    }
+
+    li { }
+  }
+}
