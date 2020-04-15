@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.14.0
+version: v1.14.1
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -15,6 +15,8 @@ patch:
         patched: '2020-01-26T22:55:26.329Z'
     - gatsby-remark-copy-linked-files > probe-image-size > request > hawk > cryptiles > boom > hoek:
         patched: '2020-01-26T22:55:26.329Z'
+    - gatsby > joi2gql > hoek:
+        patched: '2020-04-15T06:54:16.742Z'
   'npm:stringstream:20180511':
     - gatsby-remark-copy-linked-files > probe-image-size > request > stringstream:
         patched: '2020-01-26T22:55:26.329Z'
