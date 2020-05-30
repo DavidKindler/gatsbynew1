@@ -241,3 +241,5 @@ patch:
         patched: '2020-05-06T06:55:35.722Z'
     - gatsby > gatsby-plugin-typescript > @babel/preset-typescript > @babel/plugin-transform-typescript > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
         patched: '2020-05-06T06:55:35.722Z'
+    - gatsby-transformer-remark > sanitize-html > lodash:
+        patched: '2020-05-30T06:55:05.451Z'
